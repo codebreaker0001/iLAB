@@ -2,20 +2,12 @@
   font-family: sans-serif;
   --darkGreen: #286a4d;
   --lightGreen: #2e8c64;
-  color: black;
-}
-div {
-  display: inline;
 }
 .backgroundLayer {
-  /* margin: 60px; */
-  /* display: block; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  display: block;
   background-color: var(--darkGreen);
-  height: 550px;
-  width: 500px;
+  height: 100vh;
+  width: 99vw;
   padding: 5px;
   border-radius: 5px;
 }
@@ -24,15 +16,10 @@ div {
   background-size: cover;
   display: grid;
   grid-template-rows: 1.5fr 0.8fr 0.1fr 2fr;
-
-  /* gap: 50px; */
   width: 100%;
   height: 100%;
   border-top-right-radius: 44%;
   border-bottom-right-radius: 15%;
-}
-.Company {
-  /* grid-row: 1; */
 }
 
 .logoContainer {
@@ -50,6 +37,7 @@ div {
 }
 .image {
   height: 130px;
+  width: 28.4%;
   align-items: center;
   border: 5px solid var(--lightGreen);
   border-top-left-radius: 20px;
@@ -61,7 +49,7 @@ div {
   grid-row: 3;
 }
 .leftOFIMG {
-  width: 280px;
+  width: 56%;
   text-align: center;
   display: grid;
   place-items: center;
@@ -72,7 +60,7 @@ div {
   border-bottom: 5px solid var(--lightGreen);
 }
 .rightOFIMG {
-  width: 78px;
+  width: 15.6%;
   height: 60px;
   border-top: 5px solid var(--lightGreen);
   border-top-left-radius: 12px;
