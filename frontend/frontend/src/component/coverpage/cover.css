@@ -1,0 +1,89 @@
+#root {
+  font-family: sans-serif;
+  --darkGreen: #286a4d;
+  --lightGreen: #2e8c64;
+  color: black;
+}
+div {
+  display: inline;
+}
+.backgroundLayer {
+  /* margin: 60px; */
+  /* display: block; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: var(--darkGreen);
+  height: 550px;
+  width: 500px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.mainContent {
+  background-image: url(./bg1.jpg);
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 1.5fr 0.8fr 0.1fr 2fr;
+
+  /* gap: 50px; */
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 44%;
+  border-bottom-right-radius: 15%;
+}
+.Company {
+  /* grid-row: 1; */
+}
+
+.logoContainer {
+  display: flex;
+  padding-left: 20px;
+  padding-top: 20px;
+  height: 40px;
+}
+.Title {
+  display: block;
+  grid-row: 2;
+  padding-left: 30px;
+  font-size: 45px;
+  font-weight: 550;
+}
+.image {
+  height: 130px;
+  align-items: center;
+  border: 5px solid var(--lightGreen);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-top: 10px;
+}
+.CoverimgContainer {
+  display: flex;
+  grid-row: 3;
+}
+.leftOFIMG {
+  width: 280px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-style: italic;
+  border-bottom-right-radius: 16px;
+  height: 160px;
+  font-size: 16px;
+  border-bottom: 5px solid var(--lightGreen);
+}
+.rightOFIMG {
+  width: 78px;
+  height: 60px;
+  border-top: 5px solid var(--lightGreen);
+  border-top-left-radius: 12px;
+}
+.Profile {
+  grid-row: 4;
+  font-size: 18px;
+  margin: 30px 0px 0px 20px;
+}
+.name {
+  font-size: 22px;
+  color: rgb(195, 16, 16);
+  font-weight: bold;
+}
