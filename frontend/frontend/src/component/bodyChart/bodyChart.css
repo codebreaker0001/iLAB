@@ -1,0 +1,12 @@
+
+
+.body-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.body-main img{
+    height: 500px;
+}
