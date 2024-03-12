@@ -3,7 +3,6 @@ import logo from "./logo.png";
 // import { data } from "../../data";
 const LabReport = ({ data }) => {
 
-
   return (
     <div>
       {/* <header></header> */}
