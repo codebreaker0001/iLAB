@@ -15,8 +15,7 @@ const Forms = () => {
         await axios.get(`/api/healthData?booking_id=${booking_id}`)
         .then((response)=>{
           setData(e=>response.data)
-          // console.log(response.data)
-
+          console.log(response.data)
         })
         .catch((error)=>{
           console.log(error)
