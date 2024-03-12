@@ -6,11 +6,7 @@ import LabReport from "./component/labReport/LabReport";
 function App() {
   return (
     <>
-      <Headers/>
-        {/* <LabReport data={data}/>
-         */}
-         <CoverPage data={data}/>
-    <Footer/>
+      
     </>
   );
 }

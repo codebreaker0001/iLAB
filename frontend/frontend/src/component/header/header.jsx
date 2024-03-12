@@ -29,12 +29,12 @@ export default function Headers(){
     <div class="main" >
     <div class = "main-1">
       <div class="ether-flow">
-      <img src="/EtherFlow.svg" alt="i LAB" />
+      <img src="/" alt="i LAB" />
       </div>
       <div class="main-1-1">
-        <li> <NavLink to="/trade" className="nav-link">Home</NavLink></li>
-        <li><NavLink to="/trade" className="nav-link">Lab Report</NavLink></li>
-        <li><NavLink to="/trade" className="nav-link">Body Chart</NavLink></li>
+        <li> <NavLink to="/" className="nav-link">Home</NavLink></li>
+        <li><NavLink to="/labreport" className="nav-link">Lab Report</NavLink></li>
+        <li><NavLink to="/bodychart" className="nav-link">Body Chart</NavLink></li>
       </div>
       <div>
         {/* <button class="button" style={{color:"black"}} ></button> */}
