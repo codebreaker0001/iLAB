@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import gen from "./GenerateInt";
 import "./Interpreter.css";
 
@@ -25,7 +26,7 @@ const SmartInterpreter = ({ data }) => {
     }
   }
   const [result, setResult] = useState([]);
-  console.log(res);
+  // console.log(res);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -103,4 +104,4 @@ const SmartInterpreter = ({ data }) => {
     </div>
   );
 };
-export default SmartInterpreter;
+export default  React.memo(SmartInterpreter);
