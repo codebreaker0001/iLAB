@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 import React from "react";
 import gen from "./GenerateInt";
 import "./Interpreter.css";
+import { useSelector } from "react-redux";
 
-const SmartInterpreter = ({ data }) => {
+const SmartInterpreter = () => {
+  const p  = useSelector(state=>state.data);
+  const data = p[1];
+  console.log(data);
+
+    if(!data) return <div>Loading...</div>;
+    
   const arr = [];
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].test_values.length; j++) {

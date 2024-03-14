@@ -12,7 +12,7 @@
   border-radius: 5px;
 }
 .mainContent {
-  background-image: url(./bg1.jpg);
+  background-image: url(../../../public/bacgrounds/bg1.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;

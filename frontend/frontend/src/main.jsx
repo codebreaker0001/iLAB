@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/labreport" element={<LabReport />} />
       <Route path="/Coverpage" element={<CoverPage data={data} />} />
       <Route path="/bodyChart" element={<BodyChart />} />
-      <Route path="/interpreter" element={<SmartInterpreter data={data} />} />
+      <Route path="/interpreter" element={<SmartInterpreter />} />
     </Route>
   )
 );

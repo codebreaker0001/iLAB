@@ -33,6 +33,7 @@ export default function Headers(){
       </div>
       <div class="main-1-1">
         <li> <NavLink to="/" className="nav-link">Home</NavLink></li>
+        <li> <NavLink to="/coverpage" className="nav-link">Coverpage</NavLink></li>
         <li><NavLink to="/labreport" className="nav-link">Lab Report</NavLink></li>
         <li><NavLink to="/bodychart" className="nav-link">Body Chart</NavLink></li>
         <li><NavLink to="/interpreter" className="nav-link">Smart Interpreter</NavLink></li>
