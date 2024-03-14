@@ -4,14 +4,13 @@ import React, { useEffect, useState } from 'react'
 
 import './home.css'
 import { NavLink } from 'react-router-dom'
-import LabReport from '../component/labReport/LabReport'
-import { data } from '../data'
+import LabReport from '../../component/labReport/LabReport.jsx'
 function Home() {
 
 
     return (
         <>
-        <LabReport data={data} />
+            <LabReport/>
         </>
         
     )    

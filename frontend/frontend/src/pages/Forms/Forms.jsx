@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from "axios"
-import LabReport from '../labReport/LabReport';
-import { addData } from '../../features/data/dataSlice';
+import LabReport from '../../component/labReport/LabReport';
+import { addData } from '../../store/dataSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 

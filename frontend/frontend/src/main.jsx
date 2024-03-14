@@ -10,15 +10,15 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import CoverPage from "./component/coverpage/CoverPage.jsx";
-import Home from "./home/home.jsx";
+import CoverPage from "./pages/coverpage/CoverPage.jsx";
+import Home from "./pages/home/home.jsx";
 import LabReport from "./component/labReport/LabReport.jsx";
 import { data } from "./data.js";
 import BodyChart from "./component/bodyChart/bodyChart.jsx";
 import SmartInterpreter from "./component/smartInterpreter/SmartInterpreter.jsx";
-import { store } from "./app/store.js";
 import { Provider } from "react-redux";
-import Forms from "./component/Forms/Forms.jsx";
+import Forms from "./pages/Forms/Forms.jsx";
+import {store} from "./store/store.js"
 
 const router = createBrowserRouter(
   createRoutesFromElements(

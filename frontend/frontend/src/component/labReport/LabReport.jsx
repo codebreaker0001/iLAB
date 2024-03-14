@@ -4,6 +4,8 @@ import logo from "./logo.png";
 // import { data } from "../../data";
 const LabReport = () => {
 
+
+//get data using these three lines
   const p  = useSelector(state=>state.data);
   const data = p[1];
   console.log(data);
