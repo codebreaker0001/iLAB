@@ -1,7 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./labReport.css";
 import logo from "./logo.png";
 // import { data } from "../../data";
-const LabReport = ({ data }) => {
+const LabReport = () => {
+
+
+//get data using these three lines
+  const p  = useSelector(state=>state.data);
+  const data = p[1];
+  console.log(data);
 
   if(!data){
   return <p>loading...</p>
@@ -9,7 +16,7 @@ const LabReport = ({ data }) => {
 
   return (
     <div>
-      {/* <header></header> */}
+      <header></header>
       <h1>Laboratory Report</h1>
       <div className="profile">
         <span>
