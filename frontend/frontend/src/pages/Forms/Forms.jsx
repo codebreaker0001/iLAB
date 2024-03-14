@@ -22,7 +22,6 @@ const Forms = () => {
         .then((response)=>{
           setData(e=>response.data);
           dispatch(addData(response.data));
-
         })
         .catch((error)=>{
           console.log(error)
