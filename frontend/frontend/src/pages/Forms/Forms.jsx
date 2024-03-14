@@ -1,21 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from "axios"
-import LabReport from '../labReport/LabReport';
+import LabReport from '../../component/labReport/LabReport';
+import { addData } from '../../store/dataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Forms = () => {
   const [booking_id, setBooking_id] = useState();
   const [data, setData] = useState(null);
   const [isFormNeeded, setIsFormNeeded] = useState(true);
+  const dispatch = useDispatch();
+
   const handleSumbit = (e) => {
     e.preventDefault();
     if(booking_id.toString().length == 7)
     setIsFormNeeded(false);
 
       async function fetchData(){
+
         await axios.get(`/api/healthData?booking_id=${booking_id}`)
         .then((response)=>{
-          setData(e=>response.data)
-          console.log(response.data)
+          setData(e=>response.data);
+          dispatch(addData(response.data));
         })
         .catch((error)=>{
           console.log(error)
@@ -25,8 +31,8 @@ const Forms = () => {
       }
   
       fetchData();
-  
   };
+
   const handleInputChange = (e) => {
     const { value } = e.target;
     setBooking_id(value);
@@ -34,11 +40,9 @@ const Forms = () => {
 
   const [flag, setFlag] = useState(false);
 
-  const myDivRef = useRef(null);
-
   return (
-    <div className='flex relative justify-center items-center w-full h-screen border-4'>
-      <div className='border-4 flex-col flex justify-center w-3/4 h-3/4 rounded-xl items-center border-blue-700'>
+    <div className='flex justify-center items-center h-[65vh]'>
+      <div className='border-4 flex flex-col justify-center items-center w-3/4 h-3/4 rounded-xl border-blue-700'>
           <button className=' bg-blue-700 rounded-xl m-2 text-gray-100 p-3 shadow-sky-400 hover:shadow-none shadow-md w-1/4' >Post Data To API</button>
           <button className=' bg-blue-700 rounded-xl p-3 text-gray-100 w-1/4 m-2 shadow-sky-400 hover:shadow-none shadow-md' onClick={()=>setFlag(!flag)}>Get iLab</button>
       </div>
@@ -55,7 +59,7 @@ const Forms = () => {
 
           {!isFormNeeded && !data && <p className='text-white'>Loading...</p>}
           {!isFormNeeded && data && 
-          <p className='text-white'>Congratulations</p>}
+          <p className='text-white'>Congratulations </p>}
       </div>) }
     </div>
   )
