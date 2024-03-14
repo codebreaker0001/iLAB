@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import React from "react";
 import gen from "./GenerateInt";
 import "./Interpreter.css";
+import { useSelector } from "react-redux";
 
-const SmartInterpreter = ({ data }) => {
+const SmartInterpreter = () => {
+  const p = useSelector((state) => state.data);
+  const data = p[1];
+  if (!data) return <>Loading...</>;
+
   const arr = [];
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].test_values.length; j++) {
@@ -13,8 +18,8 @@ const SmartInterpreter = ({ data }) => {
     }
   }
   const res = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].lower_bound == "-" || arr[i].lower_bound == "") {
+  for (let i = 0; i < Math.min(15, arr.length); i++) {
+    if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
       continue;
     }
     if (arr[i].parameter_value < arr[i].lower_bound) {
@@ -26,17 +31,17 @@ const SmartInterpreter = ({ data }) => {
     }
   }
   const [result, setResult] = useState([]);
-  // console.log(res);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const para = await gen(res);
         setResult(para);
+        console.log(para);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
   let i = 0;
@@ -48,7 +53,7 @@ const SmartInterpreter = ({ data }) => {
             {tests.test_values.map((test) => {
               return (
                 <div key={test.test_parameter_id}>
-                  {test.is_highlighted ? (
+                  {test.is_highlighted && i < 15 ? (
                     <fieldset className="IntContainer">
                       <legend className="IntH1">{tests.test_name}</legend>
                       <div className="IntTestDes">
@@ -77,9 +82,9 @@ const SmartInterpreter = ({ data }) => {
                               display: "inline",
                             }}
                           >
-                            {test.lower_bound > test.parameter_value
+                            {test.impression === "L"
                               ? "Deficiency"
-                              : test.upper_bound < test.parameter_value
+                              : test.impression === "H"
                               ? " Abnormally high level "
                               : ""}
                           </h4>
@@ -90,7 +95,9 @@ const SmartInterpreter = ({ data }) => {
                           </span>
                         </div>
                       </div>
-                      <div className="InterpretedPara">{result[i++]}</div>
+                      <div className="InterpretedPara">
+                        {result[i++]?.detail}
+                      </div>
                     </fieldset>
                   ) : (
                     <></>
@@ -104,4 +111,4 @@ const SmartInterpreter = ({ data }) => {
     </div>
   );
 };
-export default  React.memo(SmartInterpreter);
+export default React.memo(SmartInterpreter);
