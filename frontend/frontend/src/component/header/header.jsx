@@ -1,27 +1,5 @@
-
-"use client"
-import { Link, NavLink } from 'react-router-dom';
-// import Link from 'next/link'
+import {  NavLink } from 'react-router-dom';
 import './header.css'
-
-
-// import { a }from '../temp.js'
-
-// console.log(a);
-
-// import MetmaskConnect from './metamaskConnection/metamask'
-
-
-
-
-// const ethers = require("ethers")
-
-// import ethers from 'ethers'
-
-
-var wallet;
-var signer;
-
 
 export default function Headers(){
 
@@ -31,17 +9,14 @@ export default function Headers(){
       const p= window.location.origin;
       window.location.href = p;
     }
-
-    return(
-      
-
-      <header>
+    
+  return (
+    <header>
       <nav class="bg-white border-green-200 px-4 lg:px-6 py-2.5 dark:bg-green-500">
         <div class="flex flex-wrap justify-between items-center mx-auto w-screen">
-          <a href={window.location.origin} class="flex items-center">
+          <a href="https://flowbite.com" class="flex items-center">
             <img src="" class="mr-3 h-6 sm:h-9" alt="" />
-            <span onClick={handleClick} class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">iLAB</span>
-          <button onClick={handleClick}>GetAnotherLabReport</button>
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">iLAB</span>
           </a>
           <div class="flex items-center lg:order-2">
             <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
@@ -71,6 +46,5 @@ export default function Headers(){
         </div>
       </nav>
     </header>
-    
     )
 }
