@@ -1,19 +1,47 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import axios from "axios"
 import LabReport from './component/labReport/LabReport'
-// import {data} from "./data.js"
+import Home from './pages/home/Home'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { Layout } from './component/layout/layout'
+import Forms from './pages/Forms/Forms'
+import CoverPage from './pages/coverpage/CoverPage'
+import BodyChart from './component/bodyChart/bodyChart'
+import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
+import Welcome from './pages/welcome/Welcome'
 
-function App() {
+  const App = () => {
+    // window.localStorage.setItem('isLoggedIn', false);
+    // const [login, setLogin] = useState(null);
+    const login = window.localStorage.getItem('isLoggedIn');
+
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route path="" element={<Layout />}>
+          <Route path="/" element={<Welcome/>} />
+          <Route path="/coverpage" element={<CoverPage />} />
+          <Route path="/labreport" element={<LabReport />} />
+          <Route path="/bodyChart" element={<BodyChart />} />
+          <Route path="/interpreter" element={<SmartInterpreter />} />
+        </Route>
+      )
+      );
+
+      if(login === 'true') {
+        return(
+          <div className="App">
+            <Home/>
+         </div>)
+      }
+
+      return <RouterProvider router = {router}/>;
+  }
   
-  return (
-    <div className="App">
-      {/* <LabReport data = {data}/> */}
-      this is app
-    </div>
-  )
-}
+//   const App1 = ()=> <RouterProvider router = {router}/>
+//   const App2 = ()=>(
+//     
+// )
+
+// const App = App2
 
 export default App
