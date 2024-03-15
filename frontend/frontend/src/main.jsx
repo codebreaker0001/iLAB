@@ -18,7 +18,6 @@ import SmartInterpreter from "./component/smartInterpreter/SmartInterpreter.jsx"
 import { Provider } from "react-redux";
 import Forms from "./pages/Forms/Forms.jsx";
 import {store} from "./store/store.js"
-import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
