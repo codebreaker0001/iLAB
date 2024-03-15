@@ -11,8 +11,7 @@ import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
 import Welcome from './pages/welcome/Welcome'
 
   const App = () => {
-    // window.localStorage.setItem('isLoggedIn', false);
-    // const [login, setLogin] = useState(null);
+    
     const login = window.localStorage.getItem('isLoggedIn');
 
     const router = createBrowserRouter(
@@ -36,12 +35,5 @@ import Welcome from './pages/welcome/Welcome'
 
       return <RouterProvider router = {router}/>;
   }
-  
-//   const App1 = ()=> <RouterProvider router = {router}/>
-//   const App2 = ()=>(
-//     
-// )
-
-// const App = App2
 
 export default App
