@@ -10,7 +10,7 @@ const SmartInterpreter = () => {
   if (!data) return <>Loading...</>;
 
   const arr = [];
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < data?.length; i++) {
     for (let j = 0; j < data[i].test_values.length; j++) {
       if (data[i].test_values[j].is_highlighted) {
         arr.push(data[i].test_values[j]);
@@ -53,7 +53,7 @@ const SmartInterpreter = () => {
             {tests.test_values.map((test) => {
               return (
                 <div key={test.test_parameter_id}>
-                  {test.is_highlighted && i < 15 ? (
+                  {test.is_highlighted && result[i] ? (
                     <fieldset className="IntContainer">
                       <legend className="IntH1">{tests.test_name}</legend>
                       <div className="IntTestDes">

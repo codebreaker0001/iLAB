@@ -19,15 +19,17 @@ import SmartInterpreter from "./component/smartInterpreter/SmartInterpreter.jsx"
 import { Provider } from "react-redux";
 import Forms from "./pages/Forms/Forms.jsx";
 import {store} from "./store/store.js"
+import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<Layout />}>
-      <Route path="/" element={<Forms/>} />
+      <Route path="/" element={<Forms />} />
       <Route path="/labreport" element={<LabReport />} />
-      <Route path="/Coverpage" element={<CoverPage data={data} />} />
+      <Route path="/Coverpage" element={<CoverPage />} />
       <Route path="/bodyChart" element={<BodyChart />} />
-      <Route path="/interpreter" element={<SmartInterpreter data={data} />} />
+      <Route path="/interpreter" element={<SmartInterpreter />} />
+      <Route path="/visualaid" element={<VisuallyAided />} />
     </Route>
   )
 );
