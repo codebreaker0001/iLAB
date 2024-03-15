@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import "./index.css";
-import { Layout } from "./layout.jsx";
+import { Layout } from "./component/layout/layout.jsx";
 import {
   Route,
   Routes,
@@ -11,7 +11,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import CoverPage from "./pages/coverpage/CoverPage.jsx";
-import Home from "./pages/home/home.jsx";
 import LabReport from "./component/labReport/LabReport.jsx";
 import { data } from "./data.js";
 import BodyChart from "./component/bodyChart/bodyChart.jsx";
@@ -20,22 +19,12 @@ import { Provider } from "react-redux";
 import Forms from "./pages/Forms/Forms.jsx";
 import {store} from "./store/store.js"
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="" element={<Layout />}>
-      <Route path="/" element={<Forms/>} />
-      <Route path="/labreport" element={<LabReport />} />
-      <Route path="/Coverpage" element={<CoverPage data={data} />} />
-      <Route path="/bodyChart" element={<BodyChart />} />
-      <Route path="/interpreter" element={<SmartInterpreter data={data} />} />
-    </Route>
-  )
-);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <App/>
     </Provider>
   </React.StrictMode>
 );

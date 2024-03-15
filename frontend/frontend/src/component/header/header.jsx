@@ -1,17 +1,16 @@
-
-"use client"
 import {  NavLink } from 'react-router-dom';
-
 import './header.css'
 
+export default function Headers(){
 
-
-
-
-export default function Headers() {
+    const handleClick = ()=>{
+      window.localStorage.setItem('isLoggedIn', true);
+      console.log(window.localStorage.getItem('isLoggedIn'))
+      const p= window.location.origin;
+      window.location.href = p;
+    }
+    
   return (
-
-
     <header>
       <nav class="bg-white border-green-200 px-4 lg:px-6 py-2.5 dark:bg-green-500">
         <div class="flex flex-wrap justify-between items-center mx-auto w-screen">
@@ -47,10 +46,5 @@ export default function Headers() {
         </div>
       </nav>
     </header>
-
-    
-
-
-    
     )
 }
