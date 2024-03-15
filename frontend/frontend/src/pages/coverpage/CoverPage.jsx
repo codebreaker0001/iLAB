@@ -1,7 +1,17 @@
+import { useSelector } from "react-redux";
 import "./cover.css";
 import image from "./img2.jpg";
-import logo from "./logo.png";
-const CoverPage = ({ data }) => {
+import logo from "../../../public/logos/logo.png";
+const CoverPage = () => {
+
+  const p  = useSelector(state=>state.data);
+  const data = p[1];
+  console.log(data);
+
+  if(!data){
+  return <p>loading...</p>
+  }
+
   return (
     <div className="backgroundLayer">
       <div className="mainContent">

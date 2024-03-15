@@ -6,9 +6,9 @@ const LabReport = () => {
 
 
 //get data using these three lines
-  const p  = useSelector(state=>state.data);
-  const data = p[1];
-  console.log(data);
+  const pd  = useSelector(state=>state.data);
+  const data = pd[1];
+  console.log(pd[1]);
 
   if(!data){
   return <p>loading...</p>
