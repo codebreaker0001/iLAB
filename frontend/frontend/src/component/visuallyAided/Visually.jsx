@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import React from "react";
 import "./visually.css";
-import { data } from "../../data";
+// import { data } from "../../data";
 import genVis from "./generativeAi";
 import { useEffect, useState } from "react";
 
 const VisuallyAided = () => {
-  // const p = useSelector((state) => state.data);
-  // const data = p[1];
+  const p = useSelector((state) => state.data);
+  const data = p[1];
 
   const arr = [];
   for (let i = 0; i < data?.length; i++) {
