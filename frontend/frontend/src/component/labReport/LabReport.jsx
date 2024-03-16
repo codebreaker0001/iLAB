@@ -11,7 +11,6 @@ const LabReport = () => {
   if (!data) {
     return <p>loading...</p>;
   }
-
   return (
     <div>
       <header></header>
