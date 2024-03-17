@@ -5,8 +5,8 @@ import logo from "/logos/logo.png";
 const LabReport = () => {
   //get data using these three lines
   const pd = useSelector((state) => state.data);
-  const data = pd[1];
-  console.log(pd[1]);
+  const data = pd.data[1];
+  console.log(pd.data[1]);
 
   if (!data) {
     return <p>loading...</p>;

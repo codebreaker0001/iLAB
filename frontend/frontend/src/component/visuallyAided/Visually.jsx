@@ -3,18 +3,27 @@ import React from "react";
 import "./visually.css";
 import { useEffect, useState } from "react";
 import Loading from "../loader/Loading";
+<<<<<<< HEAD
 import { aiGeneratedForVis } from "../../store/dataSlice";
 import LooksFine from "../EverythingFine/LooksFine";
+=======
+>>>>>>> master
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
-  const data = p[1];
+  const data = p.data[1];
+
+  const q = useSelector(state=> state.aiGeneratedForVis);
+  const aiGeneratedForVis = q.aiGeneratedForVis[1];
+  console.log(q.aiGeneratedForVis[1]);
+  
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isFine, setIsFine] = useState(false);
 
   useEffect(() => {
     setResult(e=>aiGeneratedForVis);
+<<<<<<< HEAD
     console.log('vaibhav kis demand: ', aiGeneratedForVis);
     if (aiGeneratedForVis.length) {
       setLoading(false);
@@ -23,6 +32,12 @@ const VisuallyAided = () => {
       setIsFine(true);
     }
   }, [result]);
+=======
+    if (aiGeneratedForVis?.length) {
+      setLoading(false);
+    }
+  }, [aiGeneratedForVis]);
+>>>>>>> master
   let i = 0;
   return (
     <>

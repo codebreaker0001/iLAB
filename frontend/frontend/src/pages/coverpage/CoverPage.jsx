@@ -5,13 +5,9 @@ import logo from "../../../public/logos/logo.png";
 const CoverPage = () => {
 
   const p  = useSelector(state=>state.data);
-  const data = p[1];
-  console.log(data);
-
-  if(!data){
-  return <p>loading...</p>
-  }
-
+  const data = p.data[1];
+  console.log(p.data[1]);
+  
   return (
     <div className="backgroundLayer">
       <div className="mainContent">
@@ -43,4 +39,4 @@ const CoverPage = () => {
     </div>
   );
 };
-export default CoverPage;
+export default CoverPage

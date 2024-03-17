@@ -21,7 +21,7 @@ async function gen(res) {
   }
   console.log(text);
   let obj = JSON.parse(text);
-  console.log(obj);
+  // console.log(obj);
   return obj;
 }
 
