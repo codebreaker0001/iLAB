@@ -9,6 +9,8 @@ import BodyChart from './component/bodyChart/bodyChart'
 import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
 import Welcome from './pages/welcome/Welcome'
 import Home from './pages/home/home'
+import VisuallyAided from "./component/visuallyAided/Visually.jsx";
+
   const App = () => {
 
     if(!window.localStorage.getItem('isLoggedIn')) {
@@ -24,6 +26,7 @@ import Home from './pages/home/home'
           <Route path="/labreport" element={<LabReport />} />
           <Route path="/bodyChart" element={<BodyChart />} />
           <Route path="/interpreter" element={<SmartInterpreter />} />
+          <Route path="/visualaid" element={<VisuallyAided />} />
         </Route>
       )
       );

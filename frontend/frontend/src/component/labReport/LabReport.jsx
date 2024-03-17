@@ -1,19 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./labReport.css";
-import logo from "./logo.png";
+import logo from "/logos/logo.png";
 // import { data } from "../../data";
 const LabReport = () => {
-
-
-//get data using these three lines
-  const pd  = useSelector(state=>state.data);
+  //get data using these three lines
+  const pd = useSelector((state) => state.data);
   const data = pd[1];
   console.log(pd[1]);
 
-  if(!data){
-  return <p>loading...</p>
+  if (!data) {
+    return <p>loading...</p>;
   }
-
   return (
     <div>
       <header></header>
@@ -25,7 +22,13 @@ const LabReport = () => {
 
         <span>Booking Date: {data[0].booking_date.slice(0, 10)}</span>
         <div className="imgContainer">
-          <img src={logo}></img>
+          <img
+            src={logo}
+            style={{
+              filter:
+                "invert(36%) sepia(6%) saturate(4047%) hue-rotate(102deg) brightness(90%) contrast(85%)",
+            }}
+          ></img>
         </div>
         <span>Customer ID: {data[0].lead_id}</span>
         <span>Booking ID: {data[0].booking_id}</span>
