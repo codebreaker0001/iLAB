@@ -20,6 +20,7 @@ import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 
     const router = createBrowserRouter(
       createRoutesFromElements(
+
         <Route path="" element={<Layout />}>
           <Route path="/" element={<Welcome/>} />
           <Route path="/coverpage" element={<CoverPage />} />

@@ -20,7 +20,7 @@ async function genVis(res) {
     text = text.substring(0, text.length - 3).trim();
   }
   let obj = JSON.parse(text);
-  console.log(obj);
+  // console.log(obj);
   return obj;
 }
 
