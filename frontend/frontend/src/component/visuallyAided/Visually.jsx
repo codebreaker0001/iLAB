@@ -4,16 +4,23 @@ import "./visually.css";
 import { useEffect, useState } from "react";
 import Loading from "../loader/Loading";
 import { aiGeneratedForVis } from "../../store/dataSlice";
+import LooksFine from "../EverythingFine/LooksFine";
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
   const data = p[1];
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isFine, setIsFine] = useState(false);
+
   useEffect(() => {
     setResult(e=>aiGeneratedForVis);
+    console.log('vaibhav kis demand: ', aiGeneratedForVis);
     if (aiGeneratedForVis.length) {
       setLoading(false);
+    }
+    if (aiGeneratedForVis[0] === 0) {
+      setIsFine(true);
     }
   }, [result]);
   let i = 0;
@@ -21,7 +28,7 @@ const VisuallyAided = () => {
     <>
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : isFine ?<LooksFine/> :  (
         <>
           <div className="bgVis">
             <h2 className="visHead text-blue-500">Health Advisory</h2>

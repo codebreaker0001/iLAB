@@ -1,69 +1,67 @@
-
-.footer-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    background-color: #286A4D;
-    color: white;
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* margin-top: 10px; */
+  background-color: #286a4d;
+  color: white;
 }
-.footer-start{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.footer-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-.footer-mid-main{
-   display: flex;
-   flex-direction: column;
-   gap: 30px;
+.footer-mid-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.footer-mid{
-    display: flex;
-    justify-content: center;
-    gap: 400px;
+.footer-mid {
+  display: flex;
+  justify-content: center;
+  gap: 400px;
 }
-.footer-start-1{
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-}
-
-.footer-mid-1{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 25px;
-    font-size: 16px;
-    font-weight: 700;
+.footer-start-1 {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
 }
 
-.footer-end{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 90px;
-    opacity: 0.4;
+.footer-mid-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.footer-end-right{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
+.footer-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  opacity: 0.4;
 }
 
-.footer-end-left{
-    display: flex;
-    /* flex-direction: column; */
-    gap: 15px;
+.footer-end-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.hr1{
-    border: solid grey px;
-    width: 60vw;
-    opacity: 0.2;
+.footer-end-left {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 15px;
+}
+
+.hr1 {
+  border: solid grey px;
+  width: 60vw;
+  opacity: 0.2;
 }

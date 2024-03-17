@@ -1,3 +1,11 @@
-.header-main{
-    color: black;
+.header-main {
+  color: black;
+  overflow: hidden;
+}
+.navHeader {
+  padding-right: 0%;
+}
+
+.active {
+  background: url("/bacgrounds/bg1.jpg") no-repeat center center/cover;
 }
