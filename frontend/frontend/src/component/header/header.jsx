@@ -117,5 +117,5 @@ export default function Headers() {
         </div>
       </nav>
     </header>
-  );
+    )
 }
