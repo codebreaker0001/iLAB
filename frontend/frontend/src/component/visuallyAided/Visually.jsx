@@ -3,19 +3,23 @@ import React from "react";
 import "./visually.css";
 import { useEffect, useState } from "react";
 import Loading from "../loader/Loading";
-import { aiGeneratedForVis } from "../../store/dataSlice";
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
-  const data = p[1];
+  const data = p.data[1];
+
+  const q = useSelector(state=> state.aiGeneratedForVis);
+  const aiGeneratedForVis = q.aiGeneratedForVis[1];
+  console.log(q.aiGeneratedForVis[1]);
+  
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setResult(e=>aiGeneratedForVis);
-    if (aiGeneratedForVis.length) {
+    if (aiGeneratedForVis?.length) {
       setLoading(false);
     }
-  }, [result]);
+  }, [aiGeneratedForVis]);
   let i = 0;
   return (
     <>

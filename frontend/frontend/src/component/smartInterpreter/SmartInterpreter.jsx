@@ -3,26 +3,26 @@ import React from "react";
 import gen from "./GenerateInt";
 import "./Interpreter.css";
 import { useSelector } from "react-redux";
-import { aiGeneratedForSmartInt } from "../../store/dataSlice";
 import Loading from "../loader/Loading";
+
 
 const SmartInterpreter = () => {
   const p  = useSelector(state=>state.data);
-  const data = p[1];
-  // console.log(data);
-  // if(!data) return <div>Loading...</div>;
-    
+  const data = p.data[1];
+
+  const q = useSelector(state => state.aiGeneratedForSmartInt);
+  const aiGeneratedForSmartInt = q.aiGeneratedForSmartInt[1];
+  console.log(aiGeneratedForSmartInt)
   
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
 
   useEffect(() => {
     setResult(aiGeneratedForSmartInt);
     if (aiGeneratedForSmartInt.length) {
       setLoading(false);
     }
-  }, []);
+  }, [aiGeneratedForSmartInt]);
   let i = 0;
   return (<>{isLoading ? (<Loading />) : (
     <div>

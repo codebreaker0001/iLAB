@@ -1,42 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import genVis from "../component/visuallyAided/generativeAi";
-import gen from "../component/smartInterpreter/GenerateInt";
-
-export var aiGeneratedForVis = [];
-export var aiGeneratedForSmartInt = [];
-
-async function updateVis(data) {
-  const arr = [];
-  for (let i = 0; i < data?.length; i++) {
-    for (let j = 0; j < data[i].test_values.length; j++) {
-      if (data[i].test_values[j].is_highlighted) {
-        arr.push(data[i].test_values[j]);
-      }
-    }
-  }
-  const res = [];
-  for (let i = 0; i < Math.min(15, arr.length); i++) {
-    if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
-      continue;
-    }
-    if (arr[i].parameter_value < arr[i].lower_bound) {
-      res.push(["deficiency", arr[i].parameter_name]);
-    } else if (arr[i].parameter_value > arr[i].upper_bound) {
-      res.push(["High level", arr[i].parameter_name]);
-    } else {
-      res.push(["", arr[i].parameter_name]);
-    }
-  }
-  if (res.length) {
-    const para1 = await genVis(res);
-    const para2 = await gen(res);
-    aiGeneratedForVis = para1;
-    aiGeneratedForSmartInt = para2;
-    // console.log("reached here");
-  } else {
-    console.error("No data found");
-  }
-}
 
 const initialState = {
   data: [
@@ -85,8 +47,7 @@ const dataSlice = createSlice({
   reducers: {
     addData: (state, action) => {
       const data = action.payload;
-      console.log(action.payload);
-      updateVis(action.payload);
+      console.log('action payload from data is: ', action);
       state.data.push(data);
     },
     removeData: (state, action) => {
