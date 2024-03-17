@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import LabReport from './component/labReport/LabReport'
-import Home from './pages/home/Home'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import { Layout } from './component/layout/layout'
 import Forms from './pages/Forms/Forms'
@@ -9,9 +8,12 @@ import CoverPage from './pages/coverpage/CoverPage'
 import BodyChart from './component/bodyChart/bodyChart'
 import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
 import Welcome from './pages/welcome/Welcome'
-
+import Home from './pages/home/home'
   const App = () => {
-    
+
+    if(!window.localStorage.getItem('isLoggedIn')) {
+      window.localStorage.setItem('isLoggedIn', true);
+    }
     const login = window.localStorage.getItem('isLoggedIn');
 
     const router = createBrowserRouter(
