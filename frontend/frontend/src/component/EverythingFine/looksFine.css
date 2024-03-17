@@ -1,0 +1,30 @@
+.containerLK {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.h2LK {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.pLK {
+    color: #666;
+    line-height: 1.6;
+}
+.messageLK {
+    padding: 20px;
+    background-color: #f0f9eb;
+    border-radius: 6px;
+    border-left: 4px solid #5cb85c;
+    margin-bottom: 20px;
+}
+.footerLK {
+    text-align: center;
+    margin-top: 30px;
+    color: #999;
+}
+
