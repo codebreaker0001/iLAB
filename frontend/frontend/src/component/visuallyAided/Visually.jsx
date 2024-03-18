@@ -18,9 +18,7 @@ const VisuallyAided = () => {
   const [isFine, setIsFine] = useState(false);
 
   useEffect(() => {
-    setResult(e=>aiGeneratedForVis);
-
-    console.log('vaibhav kis demand: ', aiGeneratedForVis);
+    setResult((e) => aiGeneratedForVis);
     if (aiGeneratedForVis.length) {
       setLoading(false);
     }
@@ -34,7 +32,9 @@ const VisuallyAided = () => {
     <>
       {isLoading ? (
         <Loading />
-      ) : isFine ?<LooksFine/> :  (
+      ) : isFine ? (
+        <LooksFine />
+      ) : (
         <>
           <div className="bgVis">
             <h2 className="visHead text-blue-500">Health Advisory</h2>
@@ -50,7 +50,10 @@ const VisuallyAided = () => {
                               {result[i] && (
                                 <fieldset className="indiVis">
                                   <legend className="legendVis">
-                                    {result[i]?.body_part} Profile
+                                    {result[i]?.body_part} Profile:{" "}
+                                    <span className="legendTestName text-gray-500">
+                                      {test.parameter_name}
+                                    </span>
                                   </legend>
                                   <div className="heading">
                                     <p>Risk involved is {result[i]?.problem}</p>
