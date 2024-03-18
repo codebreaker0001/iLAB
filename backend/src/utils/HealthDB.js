@@ -7,7 +7,6 @@ import { readExcelController } from "../controllers/excelController.js";
 
 dotenv.config({
     path:"./.env",
-    
 });
 
 

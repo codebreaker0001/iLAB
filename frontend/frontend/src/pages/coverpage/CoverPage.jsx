@@ -2,18 +2,20 @@ import { useSelector } from "react-redux";
 import "./cover.css";
 import image from "./img2.jpg";
 import logo from "../../../public/logos/logo.png";
+import Loading from "../../component/loading/Loading";
 const CoverPage = () => {
 
   const p  = useSelector(state=>state.data);
-  const data = p[1];
-  console.log(data);
+  const data = p.data[1];
+  console.log(p.data[1]);
 
-  if(!data){
-  return <p>loading...</p>
-  }
-
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading/>
+  } 
+  
   return (
-    <div className="backgroundLayer">
+    <div className="backgroundLayer"> 
       <div className="mainContent">
         <div className="Company">
           <div className="logoContainer">
@@ -43,4 +45,4 @@ const CoverPage = () => {
     </div>
   );
 };
-export default CoverPage;
+export default CoverPage

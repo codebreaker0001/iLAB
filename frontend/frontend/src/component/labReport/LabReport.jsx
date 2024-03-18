@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./labReport.css";
 import logo from "/logos/logo.png";
+import Loading from "../loading/Loading";
 // import { data } from "../../data";
 const LabReport = () => {
   //get data using these three lines
   const pd = useSelector((state) => state.data);
-  const data = pd[1];
-  console.log(pd[1]);
+  const data = pd.data[1];
+  console.log(pd.data[1]);
 
-  if (!data) {
-    return <p>loading...</p>;
-  }
+    if (!data) {
+      window.location.href = window.location.origin;
+      return <Loading/>
+    } 
+
   return (
     <div>
       <header></header>

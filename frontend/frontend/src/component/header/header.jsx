@@ -78,7 +78,7 @@ export default function Headers() {
             <ul className="hamburger flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li className="selected-nav">
                 <NavLink
-                  to="/"
+                  to="/coverpage"
                   activeClassName="active"
                   className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-large rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 active:outline-none dark:hover:text-white"
                 >

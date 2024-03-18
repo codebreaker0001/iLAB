@@ -10,6 +10,7 @@ import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
 import Welcome from './pages/welcome/Welcome'
 import Home from './pages/home/home'
 import VisuallyAided from "./component/visuallyAided/Visually.jsx";
+import Loading from './component/loading/Loading.jsx'
 
   const App = () => {
 
@@ -20,6 +21,7 @@ import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 
     const router = createBrowserRouter(
       createRoutesFromElements(
+
         <Route path="" element={<Layout />}>
           <Route path="/" element={<Welcome/>} />
           <Route path="/coverpage" element={<CoverPage />} />

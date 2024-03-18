@@ -2,13 +2,17 @@ import { useSelector } from "react-redux";
 import React from "react";
 import "./visually.css";
 import { useEffect, useState } from "react";
-import Loading from "../loader/Loading";
-import { aiGeneratedForVis } from "../../store/dataSlice";
+import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
-  const data = p[1];
+  const data = p.data[1];
+
+  const q = useSelector(state=> state.aiGeneratedForVis);
+  const aiGeneratedForVis = q.aiGeneratedForVis[1];
+  console.log(q.aiGeneratedForVis[1]);
+  
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isFine, setIsFine] = useState(false);
@@ -21,7 +25,8 @@ const VisuallyAided = () => {
     if (aiGeneratedForVis[0] === 0) {
       setIsFine(true);
     }
-  }, [result]);
+  }, [aiGeneratedForVis, result]);
+
   let i = 0;
   return (
     <>

@@ -4,14 +4,15 @@ import './bodyChart.css';
 import human from '../../assets/humann.svg'
 import Card from '../card/card';
 import { useSelector } from 'react-redux';
+import Loading from '../loading/Loading';
 // import { data } from '../../data';
 
 
 const BodyChart = () => {
 
   const pd  = useSelector(state=>state.data);
-  const data = pd[1];
-  console.log(pd[1]);
+  const data = pd.data[1];
+  console.log(pd.data[1]);
 
 
   let obj = [
@@ -56,6 +57,10 @@ for (let i = 0; i < data.length; i++) {
   console.log(obj[2]);
 
 
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading/>
+  } 
 
   return (
     <div className='main-body'>
