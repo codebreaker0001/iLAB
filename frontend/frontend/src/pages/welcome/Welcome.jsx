@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios'
 import { addData } from '../../store/dataSlice';
-import Loading from '../../component/loader/Loading';
+import Loading from '../../component/loading/Loading';
 import genVis from "../../component/visuallyAided/generativeAi";
 import gen from "../../component/smartInterpreter/GenerateInt";
 import aiGeneratedForSmartIntSlice, { addAiGeneratedForSmartInt } from '../../store/aiGeneratedForSmartIntSlice';
 import { addAiGeneratedForVis } from '../../store/aiGeneratedForVisSlice';
+import CoverPage from '../coverpage/CoverPage';
 
 
 const Welcome = () => {
@@ -89,8 +90,10 @@ const Welcome = () => {
         
         } 
         else {
-          dispatch(addAiGeneratedForVis([0]))
-          dispatch(addAiGeneratedForSmartInt([0]))
+            console.log('no data found')
+            // dispatch(addAiGeneratedForSmartInt([0]));
+            // dispatch(addAiGeneratedForVis([0]));
+          
         }
       }
 
@@ -101,7 +104,9 @@ const Welcome = () => {
 
   return (
     <>
-      {(isLoading1 || isLoading2 || isLoading3) ? (<div><Loading/></div> ):( <div>Welcome</div>)}
+      {(isLoading1 || isLoading2 || isLoading3) ? (<div><Loading/></div> ):( <div>
+        <CoverPage/>
+      </div>)}
     </>
   )
 }

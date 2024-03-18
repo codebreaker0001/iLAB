@@ -2,12 +2,8 @@ import { useSelector } from "react-redux";
 import React from "react";
 import "./visually.css";
 import { useEffect, useState } from "react";
-import Loading from "../loader/Loading";
-<<<<<<< HEAD
-import { aiGeneratedForVis } from "../../store/dataSlice";
+import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
-=======
->>>>>>> master
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
@@ -23,7 +19,7 @@ const VisuallyAided = () => {
 
   useEffect(() => {
     setResult(e=>aiGeneratedForVis);
-<<<<<<< HEAD
+
     console.log('vaibhav kis demand: ', aiGeneratedForVis);
     if (aiGeneratedForVis.length) {
       setLoading(false);
@@ -31,13 +27,8 @@ const VisuallyAided = () => {
     if (aiGeneratedForVis[0] === 0) {
       setIsFine(true);
     }
-  }, [result]);
-=======
-    if (aiGeneratedForVis?.length) {
-      setLoading(false);
-    }
-  }, [aiGeneratedForVis]);
->>>>>>> master
+  }, [aiGeneratedForVis, result]);
+
   let i = 0;
   return (
     <>

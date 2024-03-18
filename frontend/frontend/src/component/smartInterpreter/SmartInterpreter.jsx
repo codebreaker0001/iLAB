@@ -3,53 +3,46 @@ import React from "react";
 import gen from "./GenerateInt";
 import "./Interpreter.css";
 import { useSelector } from "react-redux";
-import Loading from "../loader/Loading";
+import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
 
 
 const SmartInterpreter = () => {
-<<<<<<< HEAD
-  const p = useSelector((state) => state.data);
-  const data = p[1];
-  // console.log(data);
-  // if(!data) return <div>Loading...</div>;
-
-  const [result, setResult] = useState([]);
-  const [isLoading, setLoading] = useState(false);
-  const [isFine, setIsFine] = useState(false);
-
-=======
+  
   const p  = useSelector(state=>state.data);
   const data = p.data[1];
-
+  
+  
   const q = useSelector(state => state.aiGeneratedForSmartInt);
   const aiGeneratedForSmartInt = q.aiGeneratedForSmartInt[1];
   console.log(aiGeneratedForSmartInt)
   
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
->>>>>>> master
+  const [isFine, setIsFine] = useState(false);
+  
   useEffect(() => {
     setResult(aiGeneratedForSmartInt);
     if (aiGeneratedForSmartInt.length) {
       setLoading(false);
     }
-<<<<<<< HEAD
+    
     if(aiGeneratedForSmartInt[0]===0){
       setIsFine(true);
     }
-  }, []);
-=======
   }, [aiGeneratedForSmartInt]);
->>>>>>> master
+  
   let i = 0;
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading/>
+  } 
   return (
     <>
       {isLoading ? (
         <Loading />
-      ) : isFine ? (
-        <LooksFine />
+        ) : isFine ? (
+          <LooksFine />
       ) : (
         <div>
           {data.map((tests) => {
