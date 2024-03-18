@@ -109,7 +109,7 @@ h2 {
   text-align: center;
   text-transform: capitalize;
   font-size: 30px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
 }
 .indicator {
   display: flex;
@@ -133,4 +133,7 @@ h2 {
   width: 10px;
   border-radius: 50%;
   background-color: red;
+}
+.legendTestName {
+  font-weight: lighter;
 }

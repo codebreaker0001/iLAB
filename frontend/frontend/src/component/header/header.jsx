@@ -3,6 +3,8 @@ import "./header.css";
 import { useState } from "react";
 
 export default function Headers() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleClick = () => {
     window.localStorage.setItem("isLoggedIn", true);
     console.log(window.localStorage.getItem("isLoggedIn"));
@@ -10,11 +12,15 @@ export default function Headers() {
     window.location.href = p;
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header-main">
       <nav className="navHeader bg-white border-green-200 px-4 lg:px-6 py-2.5 dark:bg-white-500">
-        <div className="flex flex-wrap justify-between items-center mx-auto w-screen  ">
-          <div onClick={handleClick} className="flex items-center">
+        <div className="flex flex-wrap justify-between items-center mx-auto w-screen">
+          <div onClick={toggleMenu} className="flex items-center">
             <img src="" className="mr-3 h-6 sm:h-9" alt="" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
               iLAB
@@ -24,20 +30,20 @@ export default function Headers() {
           <div className="flex items-center lg:order-2">
             <a
               href="#"
-              className="text-gray-800 dark:text-black hover:bg-gray-50   font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none  text-[18px] dark:hover:text-white"
+              className="text-gray-800 dark:text-black hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none text-[18px] dark:hover:text-white"
             >
               <button onClick={handleClick}>GetAnotherLabReport</button>
             </a>
             <button
-              data-collapse-toggle="mobile-menu-2"
+              onClick={toggleMenu}
               type="button"
               className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="mobile-menu-2"
-              aria-expanded="false"
+              aria-expanded={isMenuOpen ? "true" : "false"}
             >
               <span className="sr-only">Open main menu</span>
               <svg
-                className="w-6 h-6"
+                className={`w-6 h-6 ${isMenuOpen ? "hidden" : ""}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +55,7 @@ export default function Headers() {
                 ></path>
               </svg>
               <svg
-                className="hidden w-6 h-6"
+                className={`w-6 h-6 ${isMenuOpen ? "" : "hidden"}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,16 +68,19 @@ export default function Headers() {
               </svg>
             </button>
           </div>
+
           <div
-            className="hidden justify-center items-center w-full lg:flex lg:w-auto lg:order-1"
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            } justify-center items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <ul className="hamburger flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li className="selected-nav">
                 <NavLink
                   to="/"
                   activeClassName="active"
-                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50   font-large rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 active:outline-none  dark:hover:text-white"
+                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-large rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 active:outline-none dark:hover:text-white"
                 >
                   Home
                 </NavLink>
@@ -80,7 +89,7 @@ export default function Headers() {
                 <NavLink
                   to="/labreport"
                   activeClassName="active"
-                  className=" text-[18px] text-gray-800 dark:text-black hover:bg-gray-50   font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none  dark:hover:text-white"
+                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:hover:text-white"
                 >
                   Lab Report
                 </NavLink>
@@ -89,7 +98,7 @@ export default function Headers() {
                 <NavLink
                   to="/visualaid"
                   activeClassName="active"
-                  className=" text-[18px] text-gray-800 dark:text-black hover:bg-gray-50   font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none  dark:hover:text-white"
+                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:hover:text-white"
                 >
                   VisualAid
                 </NavLink>
@@ -98,7 +107,7 @@ export default function Headers() {
                 <NavLink
                   to="/bodychart"
                   activeClassName="active"
-                  className=" text-[18px] text-gray-800 dark:text-black hover:bg-gray-50   font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none  dark:hover:text-white"
+                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:hover:text-white"
                 >
                   Body Chart
                 </NavLink>
@@ -107,7 +116,7 @@ export default function Headers() {
                 <NavLink
                   to="/interpreter"
                   activeClassName="active"
-                  className=" text-[18px] text-gray-800 dark:text-black hover:bg-gray-50   font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none  dark:hover:text-white"
+                  className="text-[18px] text-gray-800 dark:text-black hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:hover:text-white"
                 >
                   Smart Interpreter
                 </NavLink>
@@ -117,5 +126,5 @@ export default function Headers() {
         </div>
       </nav>
     </header>
-    )
+  );
 }
