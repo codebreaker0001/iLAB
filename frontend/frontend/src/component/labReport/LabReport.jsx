@@ -9,15 +9,14 @@ const LabReport = () => {
   const data = pd.data[1];
   console.log(pd.data[1]);
 
-    if (!data) {
-      window.location.href = window.location.origin;
-      return <Loading/>
-    } 
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading />;
+  }
 
   return (
-    <div>
-      <header></header>
-      <h1>Laboratory Report</h1>
+    <div className="containerLR">
+      <h1 className="h1LR">Laboratory Report</h1>
       <div className="profile">
         <span>
           Name: <strong>{data[0].customer_name}</strong>
@@ -25,13 +24,13 @@ const LabReport = () => {
 
         <span>Booking Date: {data[0].booking_date.slice(0, 10)}</span>
         <div className="imgContainer">
-          <img
+          {/* <img
             src={logo}
             style={{
               filter:
                 "invert(36%) sepia(6%) saturate(4047%) hue-rotate(102deg) brightness(90%) contrast(85%)",
             }}
-          ></img>
+          ></img> */}
         </div>
         <span>Customer ID: {data[0].lead_id}</span>
         <span>Booking ID: {data[0].booking_id}</span>

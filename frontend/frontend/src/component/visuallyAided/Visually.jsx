@@ -4,28 +4,41 @@ import "./visually.css";
 import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
+import { isResEmpty } from "../../pages/welcome/Welcome";
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
   const data = p.data[1];
 
-  const q = useSelector(state=> state.aiGeneratedForVis);
+  const q = useSelector((state) => state.aiGeneratedForVis);
   const aiGeneratedForVis = q.aiGeneratedForVis[1];
   console.log(q.aiGeneratedForVis[1]);
-  
+
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isFine, setIsFine] = useState(false);
 
-  useEffect(() => {
-    setResult((e) => aiGeneratedForVis);
-    if (aiGeneratedForVis.length) {
-      setLoading(false);
+  if (isResEmpty) {
+    setIsFine(true);
+    setLoading(false);
+  }
+  const arr = [];
+  for (let i = 0; i < data?.length; i++) {
+    for (let j = 0; j < data[i].test_values.length; j++) {
+      if (data[i].test_values[j].is_highlighted) {
+        arr.push(data[i].test_values[j]);
+      }
     }
-    if (aiGeneratedForVis[0] === 0) {
+  }
+  useEffect(() => {
+    if (arr.length === 0) {
       setIsFine(true);
     }
-  }, [aiGeneratedForVis, result]);
+    setResult((e) => aiGeneratedForVis);
+    if (aiGeneratedForVis?.length) {
+      setLoading(false);
+    }
+  }, []);
 
   let i = 0;
   return (
@@ -37,7 +50,7 @@ const VisuallyAided = () => {
       ) : (
         <>
           <div className="bgVis">
-            <h2 className="visHead text-blue-500">Health Advisory</h2>
+            <h2 className="visHead">Health Advisory</h2>
             {data?.map((tests) => {
               return (
                 <div key={tests.__id}>
@@ -56,7 +69,10 @@ const VisuallyAided = () => {
                                     </span>
                                   </legend>
                                   <div className="heading">
-                                    <p>Risk involved is {result[i]?.problem}</p>
+                                    <h2 className="subHeading">
+                                      Risk Involved
+                                    </h2>
+                                    <p>{result[i]?.problem}</p>
                                   </div>
                                   <div className="indicator">
                                     <h2 className="testDetail">
@@ -133,7 +149,7 @@ const VisuallyAided = () => {
                                       {result[i++]?.tips.map((tip) => {
                                         return (
                                           <div key={i} className="tip">
-                                            <h3>{tip}</h3>
+                                            <li>{tip}</li>
                                           </div>
                                         );
                                       })}

@@ -1,29 +1,33 @@
 .header-main {
   color: black;
   overflow: hidden;
+  padding: 10px 30px 10px 30px;
 }
 .navHeader {
   padding-right: 0%;
 }
 
 .active {
-  background: url("/bacgrounds/bg1.jpg") no-repeat center center/cover;
+  background-color: aliceblue;
+  border: 1px solid gray;
 }
 @media screen and (max-width: 1024px) {
   .hamburger {
-    text-align: center;
+    text-align: start;
     font-size: 30px;
     font-weight: bold;
-    background-color: rgb(205, 205, 205);
+    background-color: rgb(255, 255, 255);
+    border: 2px ridge gray;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     width: fit-content;
-    min-width: 200px;
+    min-width: 150px;
     position: absolute;
     right: 0;
     height: 100%;
     display: grid;
     gap: 20px;
     padding: 15px;
+    padding-left: 0%;
   }
 }

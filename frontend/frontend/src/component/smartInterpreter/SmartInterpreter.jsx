@@ -6,45 +6,51 @@ import { useSelector } from "react-redux";
 import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
 
-
 const SmartInterpreter = () => {
-  
-  const p  = useSelector(state=>state.data);
+  const p = useSelector((state) => state.data);
   const data = p.data[1];
-  
-  
-  const q = useSelector(state => state.aiGeneratedForSmartInt);
+
+  const q = useSelector((state) => state.aiGeneratedForSmartInt);
   const aiGeneratedForSmartInt = q.aiGeneratedForSmartInt[1];
-  console.log(aiGeneratedForSmartInt)
-  
+  console.log(aiGeneratedForSmartInt);
+
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isFine, setIsFine] = useState(false);
+
+  const arr = [];
+  for (let i = 0; i < data?.length; i++) {
+    for (let j = 0; j < data[i].test_values.length; j++) {
+      if (data[i].test_values[j].is_highlighted) {
+        arr.push(data[i].test_values[j]);
+      }
+    }
+  }
   
   useEffect(() => {
-    setResult(aiGeneratedForSmartInt);
-    if (aiGeneratedForSmartInt.length) {
-      setLoading(false);
-    }
-    
-    if(aiGeneratedForSmartInt[0]===0){
+    if(arr.length === 0){
       setIsFine(true);
     }
-  }, [aiGeneratedForSmartInt]);
-  
+    setResult(aiGeneratedForSmartInt);
+    if (aiGeneratedForSmartInt?.length) {
+      setLoading(false);
+    }
+  }, []);
+
   let i = 0;
-  if (!data) {
-    window.location.href = window.location.origin;
-    return <Loading/>
-  } 
+  // if (!data) {
+  //   window.location.href = window.location.origin;
+  //   return <Loading />;
+  // }
   return (
     <>
       {isLoading ? (
         <Loading />
-        ) : isFine ? (
-          <LooksFine />
+      ) : isFine ? (
+        <LooksFine />
       ) : (
-        <div>
+        <div className="containerSmartI">
+          <h1 className="h1SmartInt">Smart Interpreter</h1>
           {data.map((tests) => {
             return (
               <div key={tests.__id}>
