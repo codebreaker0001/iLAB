@@ -53,43 +53,43 @@ const healthDataSchema = new Schema(
     {
         booking_id: {
             type: Number,
-            required: true
+            // required: true
         },
         customer_name: {
             type: String, 
-            required: true,
+            // required: true,
         },
         collection_date: {
             type: String,
-            required: true
+            // required: true
         },
         booking_date: {
             type: String,
-            required: true
+            // required: true
         },
         lead_id: {
             type: Number,
-            required: true
+            // required: true
         },
         uhid: {
             type: Number,
-            required: true,
+            // required: true,
         },
         useruuid:{
             type: String,
-            required: true,
+            // required: true,
         },
         test_id: {
             type: Number,
-            required: true
+            // required: true
         },
         test_code: {
             type: String,
-            required: true
+            // required: true
         },
         test_name: {
             type: String,
-            required: true
+            // required: true
         },
         test_values: {
             type:[testValueSchema],
@@ -97,23 +97,23 @@ const healthDataSchema = new Schema(
         },
         __hevo_id:{
             type: String,
-            required: true,
+            // required: true,
         },
         __hevo__ingested_at:{
             type: Number,
-            required: true,
+            // required: true,
         },
         __hevo__loaded_at:{
             type: Number,
-            required: true,
+            // required: true,
         },
         __hevo__marked_deleted:{
             type: Boolean,
-            required: true,
+            // required: true,
         },
         __hevo__source_modified_at:{
             type: Number,
-            required: true,
+            // required: true,
         },
 
     },

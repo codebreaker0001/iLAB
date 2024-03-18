@@ -4,7 +4,7 @@ import React from "react";
 
 const LooksFine = () => {
   const p = useSelector((state) => state.data);
-  const data = p[1];
+  const data = p.data[1];
   return (
     <div className="containerLK">
       <h2 className="h2LK">Medical Test Report</h2>
