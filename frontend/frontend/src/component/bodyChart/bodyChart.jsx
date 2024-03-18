@@ -13,7 +13,11 @@ const BodyChart = () => {
   const pd  = useSelector(state=>state.data);
   const data = pd.data[1];
   console.log(pd.data[1]);
-
+  
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading/>
+  } 
 
   let obj = [
     {
@@ -57,10 +61,6 @@ for (let i = 0; i < data.length; i++) {
   console.log(obj[2]);
 
 
-  if (!data) {
-    window.location.href = window.location.origin;
-    return <Loading/>
-  } 
 
   return (
     <div className='main-body'>

@@ -28,7 +28,12 @@ const VisuallyAided = () => {
   }, [aiGeneratedForVis, result]);
 
   let i = 0;
+  if (!data) {
+    window.location.href = window.location.origin;
+    return <Loading/>
+  } 
   return (
+
     <>
       {isLoading ? (
         <Loading />
