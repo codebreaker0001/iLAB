@@ -1,114 +1,108 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'
-import { addData } from '../../store/dataSlice';
-import Loading from '../../component/loading/Loading';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { addData } from "../../store/dataSlice";
+import Loading from "../../component/loading/Loading";
 import genVis from "../../component/visuallyAided/generativeAi";
 import gen from "../../component/smartInterpreter/GenerateInt";
-import aiGeneratedForSmartIntSlice, { addAiGeneratedForSmartInt } from '../../store/aiGeneratedForSmartIntSlice';
-import { addAiGeneratedForVis } from '../../store/aiGeneratedForVisSlice';
-import CoverPage from '../coverpage/CoverPage';
+import aiGeneratedForSmartIntSlice, {
+  addAiGeneratedForSmartInt,
+} from "../../store/aiGeneratedForSmartIntSlice";
+import { addAiGeneratedForVis } from "../../store/aiGeneratedForVisSlice";
+import CoverPage from "../coverpage/CoverPage";
 
-
+export var isResEmpty = false;
 const Welcome = () => {
+  const booking_id = window.localStorage.getItem("booking_id");
+  const dispatch = useDispatch();
 
-    const booking_id = window.localStorage.getItem('booking_id');
-    const dispatch = useDispatch();
+  const [isLoading1, setIsLoading1] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
+  const [isLoading3, setIsLoading3] = useState(true);
 
-    const [isLoading1, setIsLoading1] = useState(true);
-    const [isLoading2, setIsLoading2] = useState(true);
-    const [isLoading3, setIsLoading3] = useState(true);
+  const [data, setData] = useState(null);
 
-    const [data, setData] = useState(null);
-
-    useEffect( ()=>{
-      async function fetchData(){
-
-        await axios.get(`/api/healthData?booking_id=${booking_id}`)
-        .then((response)=>{
+  //for DATA
+  useEffect(() => {
+    async function fetchData() {
+      await axios
+        .get(`/api/healthData?booking_id=${booking_id}`)
+        .then((response) => {
           console.log("response data: ", response.data);
           dispatch(addData(response.data));
           setData(response.data);
         })
-        .catch((error)=>{
-          console.log(error)
+        .catch((error) => {
+          console.log(error);
         })
         .finally(setIsLoading1(false));
-      }
-
-      
-  
-      fetchData();
     }
-    ,[booking_id, dispatch]);
 
-    useEffect(()=>{
-      async function updateVis(data) {
-        const arr = [];
-        for (let i = 0; i < data?.length; i++) {
-          for (let j = 0; j < data[i].test_values.length; j++) {
-            if (data[i].test_values[j].is_highlighted) {
-              arr.push(data[i].test_values[j]);
-            }
+    fetchData();
+  }, [booking_id, dispatch]);
+
+
+  //for Visually Aid and Smart Interpreter
+  useEffect(() => {
+    async function updateVis(data) {
+      const arr = [];
+      for (let i = 0; i < data?.length; i++) {
+        for (let j = 0; j < data[i].test_values.length; j++) {
+          if (data[i].test_values[j].is_highlighted) {
+            arr.push(data[i].test_values[j]);
           }
         }
-        const res = [];
-        for (let i = 0; i < Math.min(15, arr.length); i++) {
-          if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
-            continue;
-          }
-          if (arr[i].parameter_value < arr[i].lower_bound) {
-            res.push(["deficiency", arr[i].parameter_name]);
-          } else if (arr[i].parameter_value > arr[i].upper_bound) {
-            res.push(["High level", arr[i].parameter_name]);
-          } else {
-            res.push(["", arr[i].parameter_name]);
-          }
+      }
+      const res = [];
+      for (let i = 0; i < Math.min(15, arr.length); i++) {
+        if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
+          continue;
         }
-        if (res.length) {
-  
-         await genVis(res)
-          .then(response => {
+        if (arr[i].parameter_value < arr[i].lower_bound) {
+          res.push(["deficiency", arr[i].parameter_name]);
+        } else if (arr[i].parameter_value > arr[i].upper_bound) {
+          res.push(["High level", arr[i].parameter_name]);
+        } else {
+          res.push(["", arr[i].parameter_name]);
+        }
+      }
+        await genVis(res)
+          .then((response) => {
             // console.log('para1 is: ', response)
             dispatch(addAiGeneratedForVis(response));
           })
-          .catch(err=> {
+          .catch((err) => {
             throw err;
           })
           .finally(() => setIsLoading2(false));
-          
-          await gen(res)
-          .then(res=> {
+
+        await gen(res)
+          .then((res) => {
             // console.log('para2 is: ', res)
             dispatch(addAiGeneratedForSmartInt(res));
-        })
-          .catch(err=> {
+          })
+          .catch((err) => {
             throw err;
           })
           .finally(() => setIsLoading3(false));
-  
-        
-        } 
-        else {
-            console.log('no data found')
-            // dispatch(addAiGeneratedForSmartInt([0]));
-            // dispatch(addAiGeneratedForVis([0]));
-          
-        }
       }
 
-      updateVis(data);
-    })
-
-
+    updateVis(data);
+  },);
 
   return (
     <>
-      {(isLoading1 || isLoading2 || isLoading3) ? (<div><Loading/></div> ):( <div>
-        <CoverPage/>
-      </div>)}
+      {isLoading1 || isLoading2 || isLoading3 ? (
+        <div>
+          <Loading />
+        </div>
+      ) : (
+        <div>
+          <CoverPage />
+        </div>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;

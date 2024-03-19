@@ -1,16 +1,16 @@
-
-
 #root {
   font-family: sans-serif;
   --darkGreen: #286a4d;
   --lightGreen: #3d936e;
   color: black;
 }
-.header {
-  font-size: 20px;
-  font-family: "Trebuchet MS", sans-serif;
-  font-weight: bolder;
-  color: rgb(4, 151, 77);
+.h1LR {
+  background-color: var(--lightGreen);
+  margin-top: 0%;
+  font-size: 27px;
+  color: white;
+  padding: 5px;
+  text-align: center;
 }
 .testName {
   margin-top: 0%;
@@ -51,18 +51,11 @@ header {
   height: 120px;
   justify-content: center;
 }
-h1 {
-  background-color: var(--lightGreen);
-  margin-top: 0%;
-  font-size: 27px;
-  color: white;
-  padding: 5px;
-  text-align: center;
-}
+
 .profile {
   margin: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   place-items: center;
   column-gap: 100px;

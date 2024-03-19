@@ -22,3 +22,15 @@
 .InterpretedPara {
   margin: 10px;
 }
+.h1SmartInt {
+  font-size: 27px;
+  padding: 5px;
+  color: white;
+  background-color: #3d936e;
+  text-align: center;
+  margin-bottom: 40px;
+  /* font-weight: 600; */
+}
+.containerSmartI {
+  background-color: aliceblue;
+}
