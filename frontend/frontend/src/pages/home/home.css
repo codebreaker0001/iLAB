@@ -5,3 +5,25 @@
 .logo{
     background : url('/logos/logo.png') no-repeat center center/cover;
 }
+
+.ilabrepeated{
+    background: url('/home/ilabrepeated.png') repeat center center/cover;
+    background-position: left;
+}
+.doctor{
+    background: url('/home/doctors.png') no-repeat center center/cover;
+}
+
+input{
+    border: 1px solid #0E7F6B40;
+    height: 2.2rem;
+    display: flex;
+}
+
+button{
+    height: 2.2rem;
+}
+
+.x{
+    font-family: Helvetica, Arial, sans-serif;
+}
