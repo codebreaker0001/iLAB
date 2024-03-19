@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express"
 import router from "./routes/excel-read-route.js";
 import dataRouter from "./routes/healthDataRoute.js"
+import saveDataRouter from "./routes/saveDataRoute.js"
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
@@ -14,5 +15,6 @@ app.use(express.static("public"));
 
 // app.use('/excel',router);
 app.use('/api',dataRouter);
+app.use('/api/save', saveDataRouter);
 
 export {app};
