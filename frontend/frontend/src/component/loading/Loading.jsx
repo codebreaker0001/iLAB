@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Loading.css';
+import Lottie from 'lottie-react';
+import animationData from '../../../public/lottie-animation/Animation - 1710921244160.json';
 
 const Loading = () => {
 
@@ -45,8 +47,9 @@ const Loading = () => {
         <div className="bg"></div>
         <div className="loading-container flex-col">
           <button onClick={handleClick} className='absolute top-0 right-0 m-4 hover:bg-[#309025a8] p-2 rounded-md transition-all'>GetAnotherLabReport</button>
-          <div className="loading-circle"></div>
-          <p className="healthtips m-8 text-[#071607] transition-all text-xl" >{currentSentence}</p>
+          <Lottie animationData={animationData} className='h-[8rem]'/>
+          {/* <div className="loading-circle"></div> */}
+          <p className="healthtips m-8 text-[#000000] font-bold text-2xl transition-all" >{currentSentence}</p>
         </div>
       </div>
     </>

@@ -10,18 +10,18 @@ import aiGeneratedForSmartIntSlice, {
 } from "../../store/aiGeneratedForSmartIntSlice";
 import { addAiGeneratedForVis } from "../../store/aiGeneratedForVisSlice";
 import CoverPage from "../coverpage/CoverPage";
-
+import Error from "../../component/error/Error"
 // export var isResEmpty = false;
 const Welcome = () => {
   const booking_id = window.localStorage.getItem("booking_id");
   const dispatch = useDispatch();
 
   const [isLoading1, setIsLoading1] = useState(true);
+  const [flag, setFlag] = useState(false);
   // const [isLoading2, setIsLoading2] = useState(true);
   // const [isLoading3, setIsLoading3] = useState(true);
 
   const [data, setData] = useState(null);
-  const [flag, setFlag] = useState(false);
 
   //for DATA
   useEffect(() => {
@@ -29,15 +29,17 @@ const Welcome = () => {
       await axios
         .get(`/api/healthData?booking_id=${booking_id}`)
         .then((response) => {
-          // console.log("response data: ", response.data);
 
-          if (response.data == []) {
-            () => setFlag(true);
-          }
+          console.log(response)
+          // if (response.status === 404) {
+          //   setFlag(true);
+          // }
+
           dispatch(addData(response.data));
           setData(response.data);
         })
         .catch((error) => {
+          setFlag(true);
           console.log(error);
         })
         .finally(setIsLoading1(false));
@@ -94,21 +96,12 @@ const Welcome = () => {
   //   updateVis(data);
   // },[]);
 
-  // useEffect(() => {
-  //   console.log("flag is: ", flag);
-  // }, []);
 
   return (
     <>
-      {isLoading1 ? (
-        <div>
-          <Loading />
-        </div>
-      ) : (
-        <div>
-          <CoverPage />
-        </div>
-      )}
+      {isLoading1 && <Loading/>}
+      {!isLoading1 && flag && <Error/>}
+      {!isLoading1 && !flag && <CoverPage/>}
     </>
   );
 };
