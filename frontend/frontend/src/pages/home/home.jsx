@@ -159,6 +159,11 @@ import axios from 'axios'
           </form>
         
           }
+          {
+            !isFormNeeded && (<div>
+              <p>Patient Data is Submitted</p>
+            </div>)
+          }
       
       </div>
       </div> }

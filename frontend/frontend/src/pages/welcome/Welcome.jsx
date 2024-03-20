@@ -17,11 +17,11 @@ const Welcome = () => {
   const dispatch = useDispatch();
 
   const [isLoading1, setIsLoading1] = useState(true);
+  const [flag, setFlag] = useState(false);
   // const [isLoading2, setIsLoading2] = useState(true);
   // const [isLoading3, setIsLoading3] = useState(true);
 
   const [data, setData] = useState(null);
-  const [flag, setFlag] = useState(false);
 
   //for DATA
   useEffect(() => {
@@ -29,15 +29,17 @@ const Welcome = () => {
       await axios
         .get(`/api/healthData?booking_id=${booking_id}`)
         .then((response) => {
-          // console.log("response data: ", response.data);
 
-          if (response.status === 404) {
-            setFlag(true);
-          }
+          console.log(response)
+          // if (response.status === 404) {
+          //   setFlag(true);
+          // }
+
           dispatch(addData(response.data));
           setData(response.data);
         })
         .catch((error) => {
+          setFlag(true);
           console.log(error);
         })
         .finally(setIsLoading1(false));
@@ -94,9 +96,6 @@ const Welcome = () => {
   //   updateVis(data);
   // },[]);
 
-  // useEffect(() => {
-  //   console.log("flag is: ", flag);
-  // }, []);
 
   return (
     <>
