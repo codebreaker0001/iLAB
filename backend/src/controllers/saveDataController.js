@@ -14,6 +14,8 @@ export const saveDataController = async (req, res) => {
 
       console.log('File saved successfully:', savedFile);
       res.status(200).send('7')
+
+      return savedFile;
   
     } catch (error) {
       // Handle any errors and send an error response back to the client
