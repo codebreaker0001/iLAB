@@ -18,9 +18,9 @@ To get started with Smart Lab Report, follow these steps:
 
 **Installation**: Clone this repository to your local machine **git-clone-https://github.com/codebreaker0001/iLab.git**.
 
-**Dependencies**: Go to Frontend and Backend and run **npm install** .
+**Dependencies**: Go to frontend/frontend and backend and run **npm install** .
 
-**Env Config**: go to frontend make .env file and put - **VITE_API_CONFIG="YOUR_API_KEY"**.
+**Env Config**: go to frontend/frontend make .env file and put - **VITE_API_KEY=YOUR_API_KEY** (generate it from google-gemini) .
 
 **Configuration**: Run - **npm run dev**.
 
