@@ -3,7 +3,7 @@
   margin: 30px;
   border: 2px solid black;
   border-radius: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: #167a671a;
 }
 .IntH1 {
   text-align: center;
@@ -23,15 +23,20 @@
   margin: 10px;
 }
 .h1SmartInt {
-  font-size: 27px;
-  padding: 5px;
-  color: white;
-  background-color: #3d936e;
-  text-align: center;
-  margin-bottom: 40px;
-  /* font-weight: 600; */
+  font-size: 40px;
+  padding: 5px 5px 0px 5px;
+  height: 120px;
+  color: #0e7f6b;
+  font-weight: 800;
+  line-height: 119px;
+  text-align: left;
+  margin-top: 71px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 35px;
+  /* border-bottom: 3px solid var(--darkGreen); */
 }
 .containerSmartI {
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   border-radius: 20px;
 }
