@@ -20,7 +20,7 @@ To get started with Smart Lab Report, follow these steps:
 
 **Dependencies**: Go to Frontend and Backend and run **npm install** .
 
-**Env Config**: go to frontend make .env file and put - **VITE_API_KEY="AIzaSyDlCecZCROqBdOULY8h1rOsHsKlQV6SDeM"**.
+**Env Config**: go to frontend make .env file and put - **VITE_API_KEY="YOUR_API_KEY"**.
 
 **Configuration**: Run - **npm run dev**.
 
