@@ -16,7 +16,7 @@ Smart Lab Report is a project aimed at revolutionizing the way medical reports a
 # How to Use
 To get started with Smart Lab Report, follow these steps:
 
-**Installation**: Clone this repository to your local machine **git-clone-https://github.com/codebreaker0001/iLab.git.
+**Installation**: Clone this repository to your local machine **git-clone-https://github.com/codebreaker0001/iLab.git**.
 
 **Dependencies**: Go to Frontend and Backend and run **npm install** .
 
