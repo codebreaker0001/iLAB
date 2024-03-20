@@ -4,24 +4,16 @@ import "./visually.css";
 import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
 import LooksFine from "../EverythingFine/LooksFine";
-import { isResEmpty } from "../../pages/welcome/Welcome";
+import genVis, { fVis, objVis } from "./generativeAi";
 
 const VisuallyAided = () => {
   const p = useSelector((state) => state.data);
   const data = p.data[1];
 
-  const q = useSelector((state) => state.aiGeneratedForVis);
-  const aiGeneratedForVis = q.aiGeneratedForVis[1];
-  console.log(q.aiGeneratedForVis[1]);
-
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isFine, setIsFine] = useState(false);
 
-  if (isResEmpty) {
-    setIsFine(true);
-    setLoading(false);
-  }
   const arr = [];
   for (let i = 0; i < data?.length; i++) {
     for (let j = 0; j < data[i].test_values.length; j++) {
@@ -30,23 +22,41 @@ const VisuallyAided = () => {
       }
     }
   }
+  const res = [];
+  for (let i = 0; i < Math.min(15, arr.length); i++) {
+    if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
+      continue;
+    }
+    if (arr[i].parameter_value < arr[i].lower_bound) {
+      res.push(["deficiency", arr[i].parameter_name]);
+    } else if (arr[i].parameter_value > arr[i].upper_bound) {
+      res.push(["High level", arr[i].parameter_name]);
+    } else {
+      res.push(["", arr[i].parameter_name]);
+    }
+  }
+
   useEffect(() => {
     if (arr.length === 0) {
       setIsFine(true);
+      // return;
     }
-    setResult((e) => aiGeneratedForVis);
-    if (aiGeneratedForVis?.length) {
-      setLoading(false);
+    async function fetchData() {
+      if (fVis === 0 && arr.length>0) {
+        const obj = await genVis(res);
+        setResult(obj);
+        setLoading(false);
+      } else {
+        const obj = objVis;
+        setResult(obj);
+        setLoading(false);
+      }
     }
+    fetchData();
   }, []);
 
   let i = 0;
-  if (!data) {
-    window.location.href = window.location.origin;
-    return <Loading/>
-  } 
   return (
-
     <>
       {isLoading ? (
         <Loading />
