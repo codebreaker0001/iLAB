@@ -97,17 +97,17 @@
   object-fit: contain;
 }
 .header-end button {
-  height: 40px;
-  width: 170px;
+  height: 2.5rem;
+  width: 100%;
   font-weight: 900;
   border-radius: 10px;
   background-color: #0e7f6b;
   color: white;
 }
 .header-end button:hover {
-  height: 40px;
-  width: 170px;
   border-radius: 10px;
   background-color: #1e7944;
   color: white;
 }
+
+

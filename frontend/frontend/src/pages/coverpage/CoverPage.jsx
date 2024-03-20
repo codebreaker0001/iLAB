@@ -8,6 +8,11 @@ const CoverPage = () => {
   const p  = useSelector(state=>state.data);
   const data = p.data[1];
 
+  // if (data === undefined ) {
+  //   window.location.href = window.location.origin;
+  //   return <Loading />;
+  // }
+
   if (!data) {
     return <Loading/>
   } 

@@ -3,10 +3,10 @@ import './Loading.css';
 import Lottie from 'lottie-react';
 import animationData from '../../../public/lottie-animation/Animation - 1710921244160.json';
 
-const Loading = () => {
+const Loading = () => { 
 
   const healthTips = [
-    "Have Patients, the report is being generated",
+    "Have Patience, the report is being generated",
     "Stay hydrated by drinking water regularly.",
     "Eat fruits and vegetables for a balanced diet.",
     "Exercise regularly for a healthy body and mind.",
@@ -46,8 +46,8 @@ const Loading = () => {
         <div className="bg-1"></div>
         <div className="bg"></div>
         <div className="loading-container flex-col">
-          <button onClick={handleClick} className='absolute top-0 right-0 m-4 hover:bg-[#309025a8] p-2 rounded-md transition-all'>GetAnotherLabReport</button>
-          <Lottie animationData={animationData} className='h-[8rem]'/>
+          {/* <button onClick={handleClick} className='absolute top-0 right-0 m-4 hover:bg-[#309025a8] p-2 rounded-md transition-all'>GetAnotherLabReport</button> */}
+          <Lottie animationData={animationData} className='h-[8rem] relative right-[1.5rem]'/>
           {/* <div className="loading-circle"></div> */}
           <p className="healthtips m-8 text-[#000000] font-bold text-2xl transition-all" >{currentSentence}</p>
         </div>
