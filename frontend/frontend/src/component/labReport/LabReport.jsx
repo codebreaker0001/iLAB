@@ -15,7 +15,7 @@ const LabReport = () => {
   }
 
   return (
-    <div className="containerLR">
+    <div className="containerLR bg-white">
       <h1 className="h1LR">Lab Report</h1>
       <div className="profile">
         <span>

@@ -27,3 +27,8 @@ button{
 .x{
     font-family: Helvetica, Arial, sans-serif;
 }
+
+div{
+    user-select: none;   
+    -webkit-user-select: none;
+}
