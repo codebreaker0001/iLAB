@@ -69,7 +69,7 @@ export default function Headers() {
           </ul>
         </div>
         <div className="header-end getAnoBTN">
-          <button onClick={handleClick}>
+          <button onClick={handleClick} className="absolute bottom-0">
             Get Another Report
           </button>
         </div>
