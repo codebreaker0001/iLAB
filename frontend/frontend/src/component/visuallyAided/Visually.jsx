@@ -39,10 +39,10 @@ const VisuallyAided = () => {
   useEffect(() => {
     if (arr.length === 0) {
       setIsFine(true);
-      return;
+      // return;
     }
     async function fetchData() {
-      if (fVis === 0) {
+      if (fVis === 0 && arr.length>0) {
         const obj = await genVis(res);
         setResult(obj);
         setLoading(false);

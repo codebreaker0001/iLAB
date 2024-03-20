@@ -36,14 +36,12 @@ const SmartInterpreter = () => {
     }
   }
 
-
   useEffect(() => {
     if (arr.length === 0) {
       setIsFine(true);
-      return;
     }
     async function fetchData() {
-      if (fSmInt === 0) {
+      if (fSmInt === 0 && arr.length > 0) {
         const obj = await gen(res);
         setResult(obj);
         setLoading(false);
@@ -63,7 +61,9 @@ const SmartInterpreter = () => {
   }
   return (
     <>
-      {isLoading? <Loading/> : isFine ? (
+      {isLoading ? (
+        <Loading />
+      ) : isFine ? (
         <LooksFine />
       ) : (
         <div className="containerSmartI">
