@@ -10,7 +10,7 @@ import aiGeneratedForSmartIntSlice, {
 } from "../../store/aiGeneratedForSmartIntSlice";
 import { addAiGeneratedForVis } from "../../store/aiGeneratedForVisSlice";
 import CoverPage from "../coverpage/CoverPage";
-
+import Error from "../../component/error/Error"
 // export var isResEmpty = false;
 const Welcome = () => {
   const booking_id = window.localStorage.getItem("booking_id");
@@ -31,8 +31,8 @@ const Welcome = () => {
         .then((response) => {
           // console.log("response data: ", response.data);
 
-          if (response.data == []) {
-            () => setFlag(true);
+          if (response.status === 404) {
+            setFlag(true);
           }
           dispatch(addData(response.data));
           setData(response.data);
@@ -100,15 +100,9 @@ const Welcome = () => {
 
   return (
     <>
-      {isLoading1 ? (
-        <div>
-          <Loading />
-        </div>
-      ) : (
-        <div>
-          <CoverPage />
-        </div>
-      )}
+      {isLoading1 && <Loading/>}
+      {!isLoading1 && flag && <Error/>}
+      {!isLoading1 && !flag && <CoverPage/>}
     </>
   );
 };
