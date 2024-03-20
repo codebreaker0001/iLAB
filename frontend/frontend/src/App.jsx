@@ -11,7 +11,8 @@ import Welcome from './pages/welcome/Welcome'
 
 import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 import Loading from './component/loading/Loading.jsx'
-import Home from './pages/home/home.jsx'
+import Home from './pages/home/Home.jsx'
+import Error from './component/error/Error.jsx'
 
   const App = () => {
 

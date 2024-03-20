@@ -21,7 +21,6 @@ const Welcome = () => {
   const [isLoading3, setIsLoading3] = useState(true);
 
   const [data, setData] = useState(null);
-  const [flag, setFlag] = useState(false);
 
   //for DATA
   useEffect(() => {
@@ -30,10 +29,6 @@ const Welcome = () => {
         .get(`/api/healthData?booking_id=${booking_id}`)
         .then((response) => {
           console.log("response data: ", response.data);
-
-          if(response.data==[]) {
-            ()=>setFlag(true);
-          }
           dispatch(addData(response.data));
           setData(response.data);
         })
@@ -94,10 +89,6 @@ const Welcome = () => {
 
     updateVis(data);
   },);
-
-  useEffect(()=>{
-    console.log('flag is: ', flag)
-  },[])
 
   return (
     <>
