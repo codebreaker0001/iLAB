@@ -3,6 +3,7 @@ import './bodyChart.css';
 import human from '../../assets/humann.svg';
 import Card from '../card/card';
 import { useSelector } from 'react-redux';
+import Loading from '../loading/Loading';
 
 const BodyChart = () => {
   const [hoverPosition, setHoverPosition] = useState({ x: null, y: null });
@@ -10,6 +11,11 @@ const BodyChart = () => {
   const [bodyPart, setBodyPart] = useState('1')
   const pd = useSelector((state) => state.data);
   const data = pd.data[1];
+
+  if (data === undefined ) {
+    window.location.href = window.location.origin;
+    return <Loading />;
+  }
   // console.log(pd.data[1]);
 
 
@@ -110,7 +116,7 @@ const BodyChart = () => {
           ))}
         </div>
         <div className="image-container" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <img src="/bodyChart.png" alt="Your Image" style={{ height: "80vh" }} />
+          <img src="/bodyChart.png" alt="Your Image" style={{ height: "90vh" }} />
         </div>
 
       </div>

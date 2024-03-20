@@ -16,7 +16,7 @@ export function Layout() {
             <Outlet/>
             </div>
             <div className="layoutBottom">
-            {/* <Footer/> */}
+            <Footer/>
             </div>
 
         </div>

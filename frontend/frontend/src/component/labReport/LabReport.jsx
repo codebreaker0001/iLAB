@@ -9,7 +9,7 @@ const LabReport = () => {
   const data = pd.data[1];
   console.log(pd.data[1]);
 
-  if (!data) {
+  if (data === undefined ) {
     window.location.href = window.location.origin;
     return <Loading />;
   }

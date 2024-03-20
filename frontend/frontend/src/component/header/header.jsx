@@ -17,8 +17,8 @@ export default function Headers() {
   };
 
   return (
-    <div className="header-main">
-      <div className="header-main-1">
+    <div className="header-main  h-screen">
+      <div className="header-main-1 ">
         <div className="header-img">
           <img
             src="/logos/logo2.png"
@@ -68,8 +68,8 @@ export default function Headers() {
             </li>
           </ul>
         </div>
-        <div className="header-end getAnoBTN">
-          <button onClick={handleClick} className="absolute bottom-0">
+        <div className="header-end getAnoBTN bottom-2 absolute active:scale-105">
+          <button onClick={handleClick}>
             Get Another Report
           </button>
         </div>
