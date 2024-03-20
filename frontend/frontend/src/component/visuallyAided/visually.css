@@ -1,17 +1,17 @@
+.bgVis {
+  background-color: white;
+  border-radius: 20px;
+}
 .visContainer {
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
 }
-.bgVis {
-  background-color: aliceblue;
-  border-radius: 20px;
-}
 .valueDisplay {
-  height: 23px;
+  height: fit-content;
   width: 600px;
   min-height: fit-content;
-  background-color: rgb(255, 238, 0);
+  background-color: #ffda00;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 7px;
@@ -20,64 +20,87 @@
 .lowVal {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: rgba(255, 0, 0, 0.692);
+  background-image: linear-gradient(to right, #ff4d00, #ffda00);
+  text-align: left;
+  padding-left: 40px;
+  color: white;
+  font-weight: 600;
 }
 .normalVal {
-  background-color: rgba(1, 175, 1, 0.716);
+  background-image: linear-gradient(
+    to right,
+    #ffda00,
+    #72cb00,
+    #72cb00,
+    #ffda00
+  );
+  color: white;
+  font-weight: 600;
 }
 .highVal {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: rgba(255, 0, 0, 0.692);
+  background-image: linear-gradient(to left, #ff4d00, #ffda00);
+  color: white;
+  text-align: right;
+  padding-right: 40px;
+  font-weight: 600;
 }
 .indiVis {
-  padding: 20px 40px 20px 40px;
+  width: 50vw;
+  padding: 20px 20px 20px 20px;
   margin-bottom: 40px;
   border-radius: 10px;
-  border: 2px dotted black;
+  border: 4px dashed #0e7f6b1a;
   background-color: white;
   width: 650px;
 }
 .arrow {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #1c3d5a;
+  margin-left: 25px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #0a7d69a8;
   position: relative;
-  bottom: 0.5rem;
+  bottom: 0.61rem;
 }
 .commentYou {
-  margin-top: 10px;
+  margin-top: 9px;
   border-radius: 5px;
   width: fit-content;
-  padding: 0px 8px 40px 2px;
   height: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0px 5px 0px 5px;
   text-align: center;
-  background-color: #1c3d5a;
+  background-color: #0a7d69a8;
 }
-.heading {
-  background-color: rgb(126, 235, 126);
-  border: 2px green solid;
+.divRisk {
+  background-color: #ffb8001a;
+  padding: 8px 20px 15px 20px;
   border-radius: 10px;
-  margin-bottom: 10px;
-  padding: 8px;
-}
-.subHeading {
-  text-decoration: underline;
-  font-weight: bold;
-  margin-top: 8px;
-  font-style: italic;
-}
-.visHead {
-  font-size: 27px;
-  padding: 5px;
-  color: white;
-  background-color: #3d936e;
-  text-align: center;
   margin-bottom: 40px;
 }
+.subHeading {
+  line-height: 40px;
+  font-weight: 900;
+  font-size: 20px;
+}
+.visHead {
+  font-size: 40px;
+  padding: 5px;
+  height: 120px;
+  color: #0e7f6b;
+  font-weight: 800;
+  line-height: 119px;
+  text-align: left;
+  margin-top: 71px;
+  margin-left: 70px;
+}
 p {
+  font-weight: 400;
+  font-size: 16px;
   margin: 0%;
 }
 h2 {
@@ -87,33 +110,33 @@ h2 {
   margin-top: 10px;
   display: flex;
   gap: 10px;
+  padding-left: 10px;
 }
 .tip {
-  background-color: rgb(250, 255, 100);
+  background-color: #ffffff;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid gold;
   min-width: 150px;
 }
 .tipsContainer {
-  background-color: rgba(196, 196, 2, 0.753);
-  padding: 5px 10px 10px 10px;
+  background-color: #0085ff1a;
+  padding: 5px 20px 10px 20px;
   border-radius: 10px;
-  border: 2px solid gold;
   margin-top: 10px;
 }
 .Reason {
-  background-color: rgb(121, 227, 251);
+  background-color: #ff007a1a;
   border-radius: 10px;
-  padding: 10px;
-  border: 1px rgba(0, 0, 255, 0.599) solid;
+  padding: 10px 20px 10px 20px;
+  margin: 20px 0px 30px 0px;
   margin-top: 10px;
 }
 .legendVis {
   text-align: center;
   text-transform: capitalize;
-  font-size: 30px;
-  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+  font-size: 35px;
+  line-height: 62.5px;
+  font-weight: 800;
 }
 .indicator {
   display: flex;
@@ -124,8 +147,9 @@ h2 {
   font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
 }
 .testDetail {
-  text-align: center;
-  width: 50%;
+  font-weight: 900;
+  line-height: 40px;
+  margin-left: 20px;
 }
 .levelVis {
   display: flex;
@@ -139,5 +163,6 @@ h2 {
   background-color: red;
 }
 .legendTestName {
-  font-weight: lighter;
+  /* font-weight: lighter; */
+  text-transform: uppercase;
 }

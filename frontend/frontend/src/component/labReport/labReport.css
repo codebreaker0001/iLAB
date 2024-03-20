@@ -4,6 +4,9 @@
   --lightGreen: #3d936e;
   color: black;
 }
+.containerLR {
+  /* border: 2px solid var(--darkGreen); */
+}
 .h1LR {
   background-color: var(--lightGreen);
   margin-top: 0%;

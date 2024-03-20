@@ -42,7 +42,7 @@ const VisuallyAided = () => {
       // return;
     }
     async function fetchData() {
-      if (fVis === 0 && arr.length>0) {
+      if (fVis === 0 && arr.length > 0) {
         const obj = await genVis(res);
         setResult(obj);
         setLoading(false);
@@ -65,7 +65,7 @@ const VisuallyAided = () => {
       ) : (
         <>
           <div className="bgVis">
-            <h2 className="visHead">Health Advisory</h2>
+            <h1 className="visHead">Health Advisory</h1>
             {data?.map((tests) => {
               return (
                 <div key={tests.__id}>
@@ -83,7 +83,7 @@ const VisuallyAided = () => {
                                       {test.parameter_name}
                                     </span>
                                   </legend>
-                                  <div className="heading">
+                                  <div className="divRisk">
                                     <h2 className="subHeading">
                                       Risk Involved
                                     </h2>
@@ -95,7 +95,7 @@ const VisuallyAided = () => {
                                       {test.parameter_value}
                                       {test.unit != "-" ? test.unit : ""}
                                     </h2>
-                                    <div className="levelVis">
+                                    {/* <div className="levelVis">
                                       {test.impression === "L" ? (
                                         <>
                                           <div className="redCircle"></div>Low
@@ -107,7 +107,7 @@ const VisuallyAided = () => {
                                       ) : (
                                         ""
                                       )}
-                                    </div>
+                                    </div> */}
                                   </div>
                                   <div className="valueDisplay text-center font-bold">
                                     <div className="lowVal">{`<${test.lower_bound}`}</div>
@@ -123,7 +123,7 @@ const VisuallyAided = () => {
                                         transform: `translate(${
                                           (test.parameter_value * 193) /
                                             test.lower_bound -
-                                          9
+                                          34
                                         }px, 0px)`,
                                       }}
                                     >
@@ -135,7 +135,7 @@ const VisuallyAided = () => {
                                       className="commentYou text-white"
                                       style={{
                                         transform: `translate(${
-                                          391 +
+                                          398 +
                                           (Math.min(
                                             test.parameter_value -
                                               test.upper_bound,
