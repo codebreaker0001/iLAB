@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import gen from "./GenerateInt";
+import gen, { fSmInt, objSmInt } from "./GenerateInt";
 import "./Interpreter.css";
 import { useSelector } from "react-redux";
 import Loading from "../loading/Loading";
@@ -9,10 +9,6 @@ import LooksFine from "../EverythingFine/LooksFine";
 const SmartInterpreter = () => {
   const p = useSelector((state) => state.data);
   const data = p.data[1];
-
-  const q = useSelector((state) => state.aiGeneratedForSmartInt);
-  const aiGeneratedForSmartInt = q.aiGeneratedForSmartInt[1];
-  console.log(aiGeneratedForSmartInt);
 
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -26,15 +22,38 @@ const SmartInterpreter = () => {
       }
     }
   }
-  
+  const res = [];
+  for (let i = 0; i < Math.min(15, arr.length); i++) {
+    if (arr[i]?.lower_bound == "-" || arr[i]?.lower_bound == "") {
+      continue;
+    }
+    if (arr[i].parameter_value < arr[i].lower_bound) {
+      res.push(["deficiency", arr[i].parameter_name]);
+    } else if (arr[i].parameter_value > arr[i].upper_bound) {
+      res.push(["High level", arr[i].parameter_name]);
+    } else {
+      res.push(["", arr[i].parameter_name]);
+    }
+  }
+
+
   useEffect(() => {
-    if(arr.length === 0){
+    if (arr.length === 0) {
       setIsFine(true);
+      return;
     }
-    setResult(aiGeneratedForSmartInt);
-    if (aiGeneratedForSmartInt?.length) {
-      setLoading(false);
+    async function fetchData() {
+      if (fSmInt === 0) {
+        const obj = await gen(res);
+        setResult(obj);
+        setLoading(false);
+      } else {
+        const obj = objSmInt;
+        setResult(obj);
+        setLoading(false);
+      }
     }
+    fetchData();
   }, []);
 
   let i = 0;
@@ -44,9 +63,7 @@ const SmartInterpreter = () => {
   }
   return (
     <>
-      {isLoading ? (
-        <Loading />
-      ) : isFine ? (
+      {isLoading? <Loading/> : isFine ? (
         <LooksFine />
       ) : (
         <div className="containerSmartI">

@@ -7,10 +7,8 @@ const CoverPage = () => {
 
   const p  = useSelector(state=>state.data);
   const data = p.data[1];
-  console.log(p.data[1]);
 
   if (!data) {
-    window.location.href = window.location.origin;
     return <Loading/>
   } 
   
