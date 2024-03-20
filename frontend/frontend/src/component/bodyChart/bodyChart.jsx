@@ -43,10 +43,10 @@ const BodyChart = () => {
 
 
 
-
     // Store highlighted values for each test name
     if (highlightedValues.length !== 0) highlightedValuesByTestName[testName] = highlightedValues;
   }
+
 
   // console.log(highlightedValuesByTestName);
 
@@ -67,12 +67,13 @@ const BodyChart = () => {
   // Define the boundaries for triggering the hover effect
 
   const cordinateCheck = () => {
-    if (hoverPosition.x > 146 && hoverPosition.x < 171 && hoverPosition.y > 231 && hoverPosition.y < 251) {
-      setBodyPart("lungs")
-    }
-    else {
-      setBodyPart(null)
-    }
+    if (hoverPosition.x > 89 && hoverPosition.x < 100 && hoverPosition.y > 184 && hoverPosition.y < 193) return 1;
+    else if (hoverPosition.x > 89 && hoverPosition.x < 100 && hoverPosition.y > 184 && hoverPosition.y < 193) return 1;
+    else if (hoverPosition.x > 99 && hoverPosition.x < 113 && hoverPosition.y > 198) return 1;
+    else if (hoverPosition.x > 138 && hoverPosition.x < 147 && hoverPosition.y > 198) return 1;
+    else if (hoverPosition.x > 109 && hoverPosition.x < 132 && hoverPosition.y > 82) return 1;
+    else return 0;
+
   }
 
   const arr = [];
@@ -88,25 +89,30 @@ const BodyChart = () => {
 
   // console.log(bodyPart);
 
-  const isHoveringOverDesiredArea = (testName ,index) => {
-    let num = 0 ;
-    if(hoverPosition.x > 146 && hoverPosition.x < 171 && hoverPosition.y > 231 && hoverPosition.y < 251 && testName === "Lipid Profile") return <div key={index} className="hover-overlay" style={{ top: hoverPosition.y, left: hoverPosition.x }}> (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />); </div> 
-    else if(hoverPosition.x > 218 && hoverPosition.x < 228 && hoverPosition.y > 253 && hoverPosition.y < 270 && testName === "Kidney Function Test (KFT)") return (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />);
-    // return num;
+  const isHoveringOverDesiredArea = (testName, index) => {
+    let num = 0;
+    if (hoverPosition.x > 89 && hoverPosition.x < 100 && hoverPosition.y > 184 && hoverPosition.y < 193 && testName === "Lipid Profile") return <div key={index} className="" style={{ top: hoverPosition.y, left: hoverPosition.x }}> <Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} /> </div>
+    if (hoverPosition.x > 89 && hoverPosition.x < 100 && hoverPosition.y > 184 && hoverPosition.y < 193 && testName === "Liver Function Test (LFT)") return <div key={index} className="" style={{ top: hoverPosition.y, left: hoverPosition.x }}> <Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} /> </div>
+    else if (hoverPosition.x > 99 && hoverPosition.x < 113 && hoverPosition.y > 198 && hoverPosition.y < 222 && testName === "Kidney Function Test (KFT)") return (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />);
+    else if (hoverPosition.x > 138 && hoverPosition.x < 147 && hoverPosition.y > 198 && hoverPosition.y < 222 && testName === "Kidney Function Test (KFT)") return (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />);
+    else if (hoverPosition.x > 109 && hoverPosition.x < 132 && hoverPosition.y > 82 && hoverPosition.y < 99 && testName === "Thyroid Profile Total") return (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />);
+
   };
 
   return (
     <div className='main-body'>
+      <h1 className='heading'>Hover on the Body parts to See the results</h1>
       <div className='container'>
         <div className='left'>
           {Object.keys(highlightedValuesByTestName).slice(0, Math.ceil(Object.keys(highlightedValuesByTestName).length)).map((testName, index) => (
-            isHoveringOverDesiredArea(testName ,index)
+             isHoveringOverDesiredArea(testName, index) 
+
           ))}
         </div>
         <div className="image-container" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <img src={human} alt="Your Image" />
+          <img src="/bodyChart.png" alt="Your Image" style={{ height: "80vh" }} />
         </div>
-        
+
       </div>
     </div>
   );
