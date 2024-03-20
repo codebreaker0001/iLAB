@@ -17,9 +17,9 @@ const CoverPage = () => {
   }
 
   return (
-    <div className="mainContent">
+    <div className="mainContent h-[93vh]">
       <div className="Company">
-        <div className="logoContainer">
+        <div className="logoContainer h-auto">
           <img className="logoImg" src={logo}></img>
         </div>
         <div className="Title">
@@ -28,13 +28,13 @@ const CoverPage = () => {
         </div>
       </div>
       <div className="CoverimgContainer">
-        <div className="leftOFIMG">
+        <div className="leftOFIMG ">
           An Insigthful Lab Report for better understanding
         </div>
         <img className="image" src={image}></img>
         <div className="rightOFIMG"></div>
       </div>
-      <div className="Profile">
+      <div className="Profile absolute bottom-4">
         <span>Prepared for</span>
         <div></div>
         <span className="name">
