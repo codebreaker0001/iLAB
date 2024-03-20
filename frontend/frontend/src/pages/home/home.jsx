@@ -38,15 +38,6 @@ import axios from 'axios'
     setBooking_id(value);
     setIsValidBookingId(value.match(/^\d{7}$/) !== null); // Check if the booking ID matches the pattern
   };
-
-  useEffect(() => {
-    if (!isFormNeeded) {
-      window.localStorage.setItem('isLoggedIn', false);
-      location.reload();
-      
-    }
-  }, [isFormNeeded]);
-
   
   const [flag, setFlag] = useState(false);
 
@@ -87,10 +78,12 @@ import axios from 'axios'
 
     try{
       const response = await axios.post('/api/save/saveData', formData);
-      if(response.data === '7') {
-        ()=>setIsFormNeeded(false);
+      if(response.data === 7) {
+        setIsFormNeeded(false);
       }
       setFormData([{}]);
+
+      console.log(response.data);
     }
     catch(error){
       console.error('Error saving data:', error);
@@ -146,14 +139,12 @@ import axios from 'axios'
         </div>
       </div>
 
-{/* upload xlsx */}
-
-      
       <div className='ilabrepeated  h-screen w-[100vw] sm:w-[50%] flex justify-center items-center'>
         <div className='h-[65%] rounded-2xl border-[1.1rem] border-white'>
           <img src="/home/doctors.png" alt="no-image" className='h-full rounded-2xl'/>
         </div>
       </div>
+{/* upload xlsx */}
       {flag1 && <div  className='absolute top-0 left-0 w-screen h-screen flex justify-center items-center bg-black bg-opacity-80 backdrop-blur-sm '>
         <div className='relative bg-white h-[12rem] w-[18rem] sm:w-[26rem]  flex justify-center items-center rounded-xl'>
         <button className='absolute top-2 right-2 text-black w-4 h-4 x' onClick={()=>setFlag1(!flag1)}>X</button>
