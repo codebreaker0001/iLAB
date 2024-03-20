@@ -40,7 +40,5 @@ Test thoroughly.
 Submit a pull request detailing the changes you've made and any relevant information.
 
 Feedback and Support
-If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out. You can open an issue on GitHub or contact us directly via email.
+If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out. You can open an issue on GitHub or contact us directly via email-**adarsh_y@ch.iitr.ac.in**.
 
-License
-This project is licensed under the MIT License.
