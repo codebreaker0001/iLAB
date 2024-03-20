@@ -7,7 +7,6 @@ const LabReport = () => {
   //get data using these three lines
   const pd = useSelector((state) => state.data);
   const data = pd.data[1];
-  console.log(pd.data[1]);
 
   if (data === undefined ) {
     window.location.href = window.location.origin;
@@ -41,10 +40,10 @@ const LabReport = () => {
           <div key={obj._id} className="tests">
             <h3 className="testName">{obj.test_name}</h3>
             <div className="subTest">
-              <span className="header">Test Description</span>
-              <span className="header">Value(s)</span>
-              <span className="header">Unit(s)</span>
-              <span className="header">Reference Range</span>
+              <span className="headerLR">Test Description</span>
+              <span className="headerLR">Value(s)</span>
+              <span className="headerLR">Unit(s)</span>
+              <span className="headerLR">Reference Range</span>
               {obj.test_values.map((test) => {
                 return (
                   <>

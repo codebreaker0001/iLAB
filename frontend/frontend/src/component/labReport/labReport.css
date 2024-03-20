@@ -5,15 +5,26 @@
   color: black;
 }
 .containerLR {
-  /* border: 2px solid var(--darkGreen); */
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0px 20px 10px 20px;
+  width: 78vw;
+  min-width: fit-content;
 }
 .h1LR {
-  background-color: var(--lightGreen);
-  margin-top: 0%;
-  font-size: 27px;
-  color: white;
-  padding: 5px;
-  text-align: center;
+  font-size: 40px;
+  padding: 5px 5px 0px 5px;
+  height: 120px;
+  color: #0e7f6b;
+  font-weight: 800;
+  line-height: 119px;
+  text-align: left;
+  margin-top: 71px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 35px;
+  border-bottom: 3px solid var(--darkGreen);
 }
 .testName {
   margin-top: 0%;
@@ -27,9 +38,10 @@
 .subTest {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  column-gap: 16vw;
+  column-gap: 6vw;
   row-gap: 15px;
   padding: 10px;
+  text-align: left;
 }
 .highlighted {
   font-weight: 800;
@@ -49,10 +61,11 @@ img {
   height: 70px;
   margin-top: 0%;
 }
-header {
+.headerLR {
   display: flex;
-  height: 120px;
-  justify-content: center;
+  color: var(--lightGreen);
+  font-weight: 900;
+  /* justify-content: center; */
 }
 
 .profile {
