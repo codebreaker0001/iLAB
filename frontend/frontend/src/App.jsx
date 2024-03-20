@@ -8,9 +8,10 @@ import CoverPage from './pages/coverpage/CoverPage'
 import BodyChart from './component/bodyChart/bodyChart'
 import SmartInterpreter from './component/smartInterpreter/SmartInterpreter'
 import Welcome from './pages/welcome/Welcome'
-import Home from './pages/home/Home.jsx'
+
 import VisuallyAided from "./component/visuallyAided/Visually.jsx";
 import Loading from './component/loading/Loading.jsx'
+import Home from './pages/home/home.jsx'
 
   const App = () => {
 
@@ -21,7 +22,7 @@ import Loading from './component/loading/Loading.jsx'
 
     const router = createBrowserRouter(
       createRoutesFromElements(
-
+        
         <Route path="" element={<Layout />}>
           <Route path="/" element={<Welcome/>} />
           <Route path="/coverpage" element={<CoverPage />} />

@@ -40,13 +40,15 @@ const Loading = () => {
 
   return (
     <>
-    <div className="bg-1"></div>
-    <div className="bg"></div>
-    <div className="loading-container flex-col">
-      <button onClick={handleClick} className='absolute top-0 right-0 m-4 hover:bg-[#309025a8] p-2 rounded-md transition-all'>GetAnotherLabReport</button>
-      <div className="loading-circle"></div>
-      <p className="healthtips m-8 text-[#071607] transition-all text-xl" >{currentSentence}</p>
-    </div>
+      <div className='loading-main'>
+        <div className="bg-1"></div>
+        <div className="bg"></div>
+        <div className="loading-container flex-col">
+          <button onClick={handleClick} className='absolute top-0 right-0 m-4 hover:bg-[#309025a8] p-2 rounded-md transition-all'>GetAnotherLabReport</button>
+          <div className="loading-circle"></div>
+          <p className="healthtips m-8 text-[#071607] transition-all text-xl" >{currentSentence}</p>
+        </div>
+      </div>
     </>
   );
 }

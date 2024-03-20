@@ -1,102 +1,115 @@
 import React, { useState } from 'react';
 import './bodyChart.css';
-
-import human from '../../assets/humann.svg'
+import human from '../../assets/humann.svg';
 import Card from '../card/card';
 import { useSelector } from 'react-redux';
-import Loading from '../loading/Loading';
-// import { data } from '../../data';
-
 
 const BodyChart = () => {
+  const [hoverPosition, setHoverPosition] = useState({ x: null, y: null });
 
-  const pd  = useSelector(state=>state.data);
+  const [bodyPart, setBodyPart] = useState('1')
+  const pd = useSelector((state) => state.data);
   const data = pd.data[1];
-  console.log(pd.data[1]);
-  
-  if (!data) {
-    window.location.href = window.location.origin;
-    return <Loading/>
-  } 
-
-  let obj = [
-    {
-    },
-  ]
+  // console.log(pd.data[1]);
 
 
-  
-for (let i = 0; i < data.length; i++) {
-  let testName = data[i].test_name;
-  console.log(testName);
+  const q = useSelector((state) => state.aiGeneratedForVis);
+  const aiGeneratedForVis = q.aiGeneratedForVis[1];
+  console.log(q.aiGeneratedForVis[1]);
 
-  let highlightedValues = [];
 
-  for (let j = 0; j < data[i].test_values.length; j++) {
+
+
+
+
+
+
+
+  // Create an object to store highlighted values for each test name
+  const highlightedValuesByTestName = {};
+
+  for (let i = 0; i < data.length; i++) {
+    const testName = data[i].test_name;
+    const highlightedValues = [];
+
+    for (let j = 0; j < data[i].test_values.length; j++) {
       if (data[i].test_values[j].is_highlighted === true) {
-          let highlightedObj = {
-              testMethod: data[i].test_values[j].test_method,
-              parameterName: data[i].test_values[j].parameter_name,
-              parameterValue: data[i].test_values[j].parameter_value
-          };
-          highlightedValues.push(highlightedObj);
+        highlightedValues.push({
+          testName: data[i].test_values[j].parameter_name,
+          testValue: data[i].test_values[j].parameter_value
+        });
       }
+    }
+
+
+
+
+    // Store highlighted values for each test name
+    if (highlightedValues.length !== 0) highlightedValuesByTestName[testName] = highlightedValues;
   }
 
-  console.log("Highlighted values for", testName, ":", highlightedValues);
+  // console.log(highlightedValuesByTestName);
 
-  obj[testName] = highlightedValues;
+  const handleMouseMove = (event) => {
+    const imageRect = event.target.getBoundingClientRect();
+    const offsetX = event.clientX - imageRect.left;
+    const offsetY = event.clientY - imageRect.top;
+    setHoverPosition({ x: offsetX, y: offsetY });
+    cordinateCheck()
+  };
 
-  console.log("Change");
-}
+  console.log(hoverPosition);
 
-  console.log('nmhbkhj',obj);
-  
-  
-  // Object.keys(obj).map((data)=>{
-  //   console.log(data);
-  // }) 
-  // }
+  const handleMouseLeave = () => {
+    setHoverPosition({ x: null, y: null });
+  };
 
-  console.log(obj[2]);
+  // Define the boundaries for triggering the hover effect
 
+  const cordinateCheck = () => {
+    if (hoverPosition.x > 146 && hoverPosition.x < 171 && hoverPosition.y > 231 && hoverPosition.y < 251) {
+      setBodyPart("lungs")
+    }
+    else {
+      setBodyPart(null)
+    }
+  }
 
+  const arr = [];
+  for (let i = 0; i < data?.length; i++) {
+    for (let j = 0; j < data[i].test_values.length; j++) {
+      if (data[i].test_values[j].is_highlighted) {
+        arr.push(data[i].test_values[j]);
+      }
+    }
+  }
+
+  console.log(arr);
+
+  // console.log(bodyPart);
+
+  const isHoveringOverDesiredArea = (testName ,index) => {
+    let num = 0 ;
+    if(hoverPosition.x > 146 && hoverPosition.x < 171 && hoverPosition.y > 231 && hoverPosition.y < 251 && testName === "Lipid Profile") return <div key={index} className="hover-overlay" style={{ top: hoverPosition.y, left: hoverPosition.x }}> (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />); </div> 
+    else if(hoverPosition.x > 218 && hoverPosition.x < 228 && hoverPosition.y > 253 && hoverPosition.y < 270 && testName === "Kidney Function Test (KFT)") return (<Card title={testName} highlightedValues={highlightedValuesByTestName[testName]} />);
+    // return num;
+  };
 
   return (
     <div className='main-body'>
-      <div>
-        {
-          Object.keys(obj).map((testName, index) => (
-            <div key={index} className='card'>
-              {/* <h2>{testName}</h2> */}
-              {/* Debugging */}
-              {console.log("Value of obj[testName]: ", obj[testName])}
-              {/* End of debugging */}
-              {Array.isArray(obj[testName]) && obj[testName].map((highlightedValue, i) => (
-                <div key={i} className='highlighted-value'>
-                      <Card title={testName} testName={highlightedValue.parameterName} testValue={highlightedValue.parameterValue}  />
-                </div>
-              ))}
-            </div>
-          ))
-        }
+      <div className='container'>
+        <div className='left'>
+          {Object.keys(highlightedValuesByTestName).slice(0, Math.ceil(Object.keys(highlightedValuesByTestName).length)).map((testName, index) => (
+            isHoveringOverDesiredArea(testName ,index)
+          ))}
+        </div>
+        <div className="image-container" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+          <img src={human} alt="Your Image" />
+        </div>
+        
       </div>
-  
-      <img src={human} alt="Human body with labeled parts" />
-  
-      
-
-      </div>
-   
-)  
-
-
-
-
-
-
-  
-  
+    </div>
+  );
 };
 
 export default BodyChart;

@@ -1,10 +1,16 @@
+
+.loading-main{
+  width: 80vw;
+}
+
+
 .loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: absolute;
-    width: 100vw;
+    width: 80vw;
     top: 0;
     z-index: 10;
   }

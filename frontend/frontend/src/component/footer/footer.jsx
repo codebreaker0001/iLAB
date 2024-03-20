@@ -37,7 +37,7 @@ export default function Footer() {
 
             </div>
             <div>
-                <p>© 2023. EtherFlow Co. All rights reserved. </p>
+                <p>© 2024. iLabs Co. All rights reserved. </p>
             </div>
         </div>
     )

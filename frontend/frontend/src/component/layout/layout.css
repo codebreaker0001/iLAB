@@ -1,0 +1,18 @@
+.layout{
+    display:  grid;
+    grid-template-columns: 20vw 79vw;
+    grid-template-rows: 0.7fr 0.3fr;
+    background-color: #E7F2F0;
+    height: 12vh;
+}
+.layoutMain{
+    background-color: #E7F2F0;
+
+}
+.layoutLeft{
+    background-color: #E7F2F0;
+
+}
+.layoutBottom{
+    grid-column: 1/3;
+}

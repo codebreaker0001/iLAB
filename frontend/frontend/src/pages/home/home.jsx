@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import "./Home.css"
+import "./home.css"
 import Forms from '../Forms/Forms'
 import readXlsxFile from 'read-excel-file'
 import axios from 'axios'
 
-const Home = () => {
+
+
+ const  Home = () => {
 
   const [booking_id, setBooking_id] = useState();
   const [isFormNeeded, setIsFormNeeded] = useState(true);

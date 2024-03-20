@@ -9,5 +9,6 @@
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    user-select: none;
+    user-select: none;   
+    /* background-color: red; */
 }

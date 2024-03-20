@@ -5,6 +5,7 @@
 }
 .bgVis {
   background-color: aliceblue;
+  border-radius: 20px;
 }
 .valueDisplay {
   height: 23px;

@@ -16,7 +16,7 @@ const LabReport = () => {
 
   return (
     <div className="containerLR">
-      <h1 className="h1LR">Laboratory Report</h1>
+      <h1 className="h1LR">Lab Report</h1>
       <div className="profile">
         <span>
           Name: <strong>{data[0].customer_name}</strong>

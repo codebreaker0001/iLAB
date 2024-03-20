@@ -1,22 +1,47 @@
+.body-part{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .main-body{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
 
-.main-body-1{
+  
+  .container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    
-}
-
-.card{
+    justify-content: center;
+    gap: 100px;
+  }
+  
+  .left {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 10px;
     align-items: center;
-    gap: 20px;
-}
+    justify-content: left;
+    position: absolute;
+  }
+  
+  
+
+  .image-container {
+    /* position: relative; */
+    /* display: inline-block; */
+  }
+  
+  .hover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18%;
+    height: 20%;
+    /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    /* Add any other styles for your hover effect */
+  }
